@@ -1,0 +1,28 @@
+[project]
+name = "matchsense"
+version = "0.1.0"
+description = "Strands Decider 2B watches the match; Amazon Nova speaks when tactics change."
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "fastapi==0.161.1",
+    "uvicorn==0.54.0",
+    "pydantic==2.14.1",
+    "strands-agents==1.62.0",
+    "boto3==1.43.118",
+    "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

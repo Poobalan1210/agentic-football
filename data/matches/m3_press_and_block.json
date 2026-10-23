@@ -1,0 +1,5194 @@
+{
+ "id": "m3_press_and_block",
+ "title": "Breaking a low block, trading goals",
+ "length_s": 120,
+ "tick_s": 2,
+ "final_score": [
+  1,
+  1
+ ],
+ "ticks": [
+  {
+   "tick": 0,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 120,
+    "possession": "us",
+    "possession_age_s": 0,
+    "ball": {
+     "x": 24.5,
+     "y": 15.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.34,
+      "y": 10.26,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 17.92,
+      "y": 9.76,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.01,
+      "y": 15.9,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 25.28,
+      "y": 3.8,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.98,
+      "y": 10.08,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 39.41,
+      "y": 10.0,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 34.78,
+      "y": 10.26,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 32.12,
+      "y": 12.75,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 32.41,
+      "y": 7.48,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.31,
+      "y": 10.4,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.95,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 1,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 118,
+    "possession": "us",
+    "possession_age_s": 2,
+    "ball": {
+     "x": 24.7,
+     "y": 13.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 4.51,
+      "y": 9.61,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 18.09,
+      "y": 10.18,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.04,
+      "y": 15.41,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 24.93,
+      "y": 4.46,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.85,
+      "y": 10.04,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 39.16,
+      "y": 9.64,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 35.04,
+      "y": 9.95,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 32.11,
+      "y": 13.3,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 31.59,
+      "y": 6.32,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.64,
+      "y": 9.7,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.94,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 2,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 116,
+    "possession": "us",
+    "possession_age_s": 4,
+    "ball": {
+     "x": 24.9,
+     "y": 11.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.43,
+      "y": 9.67,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 18.87,
+      "y": 9.74,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.76,
+      "y": 16.0,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 25.26,
+      "y": 4.41,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.06,
+      "y": 10.06,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 39.49,
+      "y": 9.67,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 34.62,
+      "y": 9.97,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 32.42,
+      "y": 12.88,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 31.84,
+      "y": 6.69,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.06,
+      "y": 9.31,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.93,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 3,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 114,
+    "possession": "us",
+    "possession_age_s": 6,
+    "ball": {
+     "x": 25.1,
+     "y": 9.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.41,
+      "y": 9.99,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 18.67,
+      "y": 9.85,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.81,
+      "y": 15.26,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 25.27,
+      "y": 4.22,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.26,
+      "y": 8.93,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 39.05,
+      "y": 9.62,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 35.12,
+      "y": 9.87,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 33.01,
+      "y": 12.56,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 32.27,
+      "y": 6.55,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.85,
+      "y": 9.84,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.92,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 4,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 112,
+    "possession": "us",
+    "possession_age_s": 8,
+    "ball": {
+     "x": 25.3,
+     "y": 7.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.46,
+      "y": 10.05,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 18.48,
+      "y": 10.47,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 26.52,
+      "y": 15.49,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 25.33,
+      "y": 4.47,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 31.27,
+      "y": 9.52,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.52,
+      "y": 9.97,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 34.93,
+      "y": 9.73,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 32.4,
+      "y": 12.02,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 31.64,
+      "y": 5.89,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.16,
+      "y": 9.06,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.91,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 5,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 110,
+    "possession": "us",
+    "possession_age_s": 10,
+    "ball": {
+     "x": 25.5,
+     "y": 5.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.08,
+      "y": 10.04,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 19.39,
+      "y": 10.48,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 27.28,
+      "y": 14.92,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 26.04,
+      "y": 5.31,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 31.08,
+      "y": 8.78,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.69,
+      "y": 10.47,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 34.56,
+      "y": 9.52,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 33.03,
+      "y": 11.68,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 31.74,
+      "y": 6.13,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.27,
+      "y": 9.02,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.89,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 6,
+   "phase": "attack",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 108,
+    "possession": "us",
+    "possession_age_s": 12,
+    "ball": {
+     "x": 24.0,
+     "y": 14.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 3.85,
+      "y": 9.98,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 16.09,
+      "y": 10.08,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 23.52,
+      "y": 15.08,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.75,
+      "y": 5.24,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.49,
+      "y": 10.26,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.66,
+      "y": 9.95,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 32.72,
+      "y": 9.83,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 29.75,
+      "y": 13.36,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 29.22,
+      "y": 7.16,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 21.95,
+      "y": 10.43,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.88,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 7,
+   "phase": "attack",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 106,
+    "possession": "us",
+    "possession_age_s": 14,
+    "ball": {
+     "x": 25.67,
+     "y": 11.17
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 4.13,
+      "y": 9.61,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 17.78,
+      "y": 9.85,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.71,
+      "y": 15.41,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 25.22,
+      "y": 4.9,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 31.18,
+      "y": 9.36,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.0,
+      "y": 9.75,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 33.96,
+      "y": 10.0,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 30.96,
+      "y": 12.69,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 29.75,
+      "y": 6.65,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 22.98,
+      "y": 10.55,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.87,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 8,
+   "phase": "attack",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 104,
+    "possession": "us",
+    "possession_age_s": 16,
+    "ball": {
+     "x": 27.33,
+     "y": 7.83
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 4.44,
+      "y": 10.36,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 18.44,
+      "y": 10.1,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 28.13,
+      "y": 15.13,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 27.33,
+      "y": 4.7,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 32.32,
+      "y": 9.61,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.34,
+      "y": 10.29,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 34.52,
+      "y": 8.95,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 32.16,
+      "y": 12.94,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 31.33,
+      "y": 5.98,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 24.51,
+      "y": 11.16,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.86,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 9,
+   "phase": "attack",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 102,
+    "possession": "us",
+    "possession_age_s": 18,
+    "ball": {
+     "x": 29.0,
+     "y": 4.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 4.81,
+      "y": 10.16,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 20.4,
+      "y": 10.13,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 29.76,
+      "y": 15.05,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 29.05,
+      "y": 4.26,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 33.99,
+      "y": 9.15,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.94,
+      "y": 10.16,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 35.76,
+      "y": 8.97,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 33.16,
+      "y": 13.36,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 32.37,
+      "y": 6.15,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 25.98,
+      "y": 10.85,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.85,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 10,
+   "phase": "counter_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 100,
+    "possession": "them",
+    "possession_age_s": 0,
+    "ball": {
+     "x": 27.5,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 3.15,
+      "y": 10.16,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 19.53,
+      "y": 9.65,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 30.47,
+      "y": 14.69,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 29.19,
+      "y": 4.94,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 33.47,
+      "y": 10.19,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.83,
+      "y": 9.65,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 27.82,
+      "y": 10.36,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 26.5,
+      "y": 14.26,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.66,
+      "y": 6.22,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 17.75,
+      "y": 10.3,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.84,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 11,
+   "phase": "counter_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 98,
+    "possession": "them",
+    "possession_age_s": 2,
+    "ball": {
+     "x": 21.33,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 2.35,
+      "y": 10.26,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 16.09,
+      "y": 10.29,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 26.26,
+      "y": 15.02,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 25.25,
+      "y": 4.75,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.34,
+      "y": 9.67,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.87,
+      "y": 9.7,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 26.25,
+      "y": 9.78,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 22.04,
+      "y": 13.98,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 20.61,
+      "y": 6.3,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 14.8,
+      "y": 10.34,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.83,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 12,
+   "phase": "counter_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 96,
+    "possession": "them",
+    "possession_age_s": 4,
+    "ball": {
+     "x": 15.17,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 2.16,
+      "y": 10.22,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 11.61,
+      "y": 10.3,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 23.71,
+      "y": 15.24,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 21.68,
+      "y": 4.74,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 28.32,
+      "y": 10.23,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.72,
+      "y": 10.02,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 25.46,
+      "y": 10.44,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 17.81,
+      "y": 13.78,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.65,
+      "y": 5.67,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 11.65,
+      "y": 9.99,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.82,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 13,
+   "phase": "counter_them",
+   "event": "goal_them",
+   "state": {
+    "score_us": 0,
+    "score_them": 0,
+    "match_length_s": 120,
+    "time_remaining_s": 94,
+    "possession": "them",
+    "possession_age_s": 6,
+    "ball": {
+     "x": 9.0,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 1.54,
+      "y": 10.47,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 7.22,
+      "y": 11.33,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 20.34,
+      "y": 15.11,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 18.17,
+      "y": 4.6,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 25.91,
+      "y": 10.09,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 36.73,
+      "y": 9.7,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 23.83,
+      "y": 9.51,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.03,
+      "y": 14.04,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.79,
+      "y": 5.66,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 8.28,
+      "y": 10.2,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.81,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 14,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 92,
+    "possession": "them",
+    "possession_age_s": 8,
+    "ball": {
+     "x": 31.5,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 4.03,
+      "y": 9.6,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 15.53,
+      "y": 9.51,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 24.49,
+      "y": 13.95,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 24.24,
+      "y": 5.97,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 28.87,
+      "y": 10.16,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.82,
+      "y": 9.92,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 32.32,
+      "y": 10.16,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 28.06,
+      "y": 15.48,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 28.29,
+      "y": 4.67,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.51,
+      "y": 9.51,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.8,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 15,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 90,
+    "possession": "them",
+    "possession_age_s": 10,
+    "ball": {
+     "x": 30.38,
+     "y": 11.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.0,
+      "y": 9.88,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 16.59,
+      "y": 9.69,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 24.39,
+      "y": 13.63,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.98,
+      "y": 6.22,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.16,
+      "y": 10.66,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.79,
+      "y": 9.6,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 31.71,
+      "y": 9.68,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 27.37,
+      "y": 14.72,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 27.48,
+      "y": 4.86,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.41,
+      "y": 9.39,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.78,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 16,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 88,
+    "possession": "them",
+    "possession_age_s": 12,
+    "ball": {
+     "x": 29.25,
+     "y": 12.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 4.61,
+      "y": 10.25,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 17.0,
+      "y": 10.09,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 24.27,
+      "y": 13.12,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.73,
+      "y": 6.06,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 28.93,
+      "y": 10.79,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.49,
+      "y": 10.27,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 31.24,
+      "y": 10.48,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 27.45,
+      "y": 14.81,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 26.81,
+      "y": 4.89,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.91,
+      "y": 9.65,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.77,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 17,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 86,
+    "possession": "them",
+    "possession_age_s": 14,
+    "ball": {
+     "x": 28.12,
+     "y": 13.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.88,
+      "y": 9.61,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 17.81,
+      "y": 10.33,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.04,
+      "y": 13.24,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.3,
+      "y": 6.64,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 28.53,
+      "y": 11.64,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.41,
+      "y": 10.01,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 30.28,
+      "y": 10.24,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 27.04,
+      "y": 14.53,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 26.97,
+      "y": 5.4,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 18.77,
+      "y": 8.79,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.76,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 18,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 84,
+    "possession": "them",
+    "possession_age_s": 16,
+    "ball": {
+     "x": 27.0,
+     "y": 14.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 6.09,
+      "y": 9.7,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 18.06,
+      "y": 9.7,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 24.72,
+      "y": 12.85,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.03,
+      "y": 7.21,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.39,
+      "y": 12.06,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.71,
+      "y": 9.93,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 29.51,
+      "y": 10.11,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 27.28,
+      "y": 14.03,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 26.47,
+      "y": 5.42,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.33,
+      "y": 8.99,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.75,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 19,
+   "phase": "counter_us",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 82,
+    "possession": "us",
+    "possession_age_s": 0,
+    "ball": {
+     "x": 14.0,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 3.42,
+      "y": 9.87,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 13.16,
+      "y": 9.58,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.47,
+      "y": 15.3,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.2,
+      "y": 3.89,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 22.16,
+      "y": 8.12,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 36.47,
+      "y": 9.68,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 24.49,
+      "y": 11.42,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 11.77,
+      "y": 13.71,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.71,
+      "y": 5.92,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.26,
+      "y": 9.6,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.74,
+    "objective": "exploit_space"
+   },
+   "reference_policy": "COUNTERATTACK",
+   "reference_reason": "we have the ball with at most one opponent goal-side: attack the space now"
+  },
+  {
+   "tick": 20,
+   "phase": "counter_us",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 80,
+    "possession": "us",
+    "possession_age_s": 2,
+    "ball": {
+     "x": 19.67,
+     "y": 11.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 3.36,
+      "y": 9.53,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 14.38,
+      "y": 10.07,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 19.78,
+      "y": 14.81,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.76,
+      "y": 4.15,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 26.38,
+      "y": 7.82,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 36.45,
+      "y": 10.17,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 26.79,
+      "y": 10.94,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.66,
+      "y": 14.24,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 15.88,
+      "y": 6.0,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 13.08,
+      "y": 10.09,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.73,
+    "objective": "exploit_space"
+   },
+   "reference_policy": "COUNTERATTACK",
+   "reference_reason": "we have the ball with at most one opponent goal-side: attack the space now"
+  },
+  {
+   "tick": 21,
+   "phase": "counter_us",
+   "event": null,
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 78,
+    "possession": "us",
+    "possession_age_s": 4,
+    "ball": {
+     "x": 25.33,
+     "y": 13.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 4.65,
+      "y": 9.69,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 15.83,
+      "y": 10.47,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 24.52,
+      "y": 14.7,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 20.86,
+      "y": 4.17,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.04,
+      "y": 7.83,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.04,
+      "y": 10.41,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 28.26,
+      "y": 10.39,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 19.01,
+      "y": 14.04,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 19.97,
+      "y": 6.06,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 15.38,
+      "y": 10.02,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.72,
+    "objective": "exploit_space"
+   },
+   "reference_policy": "COUNTERATTACK",
+   "reference_reason": "we have the ball with at most one opponent goal-side: attack the space now"
+  },
+  {
+   "tick": 22,
+   "phase": "counter_us",
+   "event": "goal_us",
+   "state": {
+    "score_us": 0,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 76,
+    "possession": "us",
+    "possession_age_s": 6,
+    "ball": {
+     "x": 31.0,
+     "y": 14.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 5.49,
+      "y": 10.03,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 17.79,
+      "y": 9.79,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 30.34,
+      "y": 14.88,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 26.43,
+      "y": 4.16,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 33.78,
+      "y": 7.61,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.23,
+      "y": 10.02,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 31.42,
+      "y": 10.22,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 22.31,
+      "y": 13.73,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.36,
+      "y": 6.02,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 18.13,
+      "y": 9.57,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.71,
+    "objective": "exploit_space"
+   },
+   "reference_policy": "COUNTERATTACK",
+   "reference_reason": "we have the ball with at most one opponent goal-side: attack the space now"
+  },
+  {
+   "tick": 23,
+   "phase": "pressed",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 74,
+    "possession": "us",
+    "possession_age_s": 8,
+    "ball": {
+     "x": 6.5,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 1.76,
+      "y": 10.13,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 6.38,
+      "y": 9.94,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 11.48,
+      "y": 16.19,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 11.16,
+      "y": 3.78,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.27,
+      "y": 10.14,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 36.87,
+      "y": 10.16,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 23.96,
+      "y": 10.19,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 10.46,
+      "y": 13.01,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 8.51,
+      "y": 6.52,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 6.87,
+      "y": 9.61,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.7,
+    "objective": "survive_pressure",
+    "opponent_pressing": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 24,
+   "phase": "pressed",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 72,
+    "possession": "us",
+    "possession_age_s": 10,
+    "ball": {
+     "x": 8.25,
+     "y": 8.62
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 2.26,
+      "y": 10.18,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 6.45,
+      "y": 9.89,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 11.68,
+      "y": 16.48,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 11.94,
+      "y": 3.52,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.88,
+      "y": 10.72,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.46,
+      "y": 10.17,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 24.01,
+      "y": 10.12,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 10.41,
+      "y": 13.45,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 9.63,
+      "y": 7.15,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 7.6,
+      "y": 9.74,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.69,
+    "objective": "survive_pressure",
+    "opponent_pressing": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 25,
+   "phase": "pressed",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 70,
+    "possession": "us",
+    "possession_age_s": 12,
+    "ball": {
+     "x": 10.0,
+     "y": 7.25
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 1.7,
+      "y": 10.31,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 7.34,
+      "y": 9.97,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.18,
+      "y": 16.35,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.44,
+      "y": 3.91,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.09,
+      "y": 10.07,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.13,
+      "y": 10.01,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 24.02,
+      "y": 10.4,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 11.49,
+      "y": 13.65,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 10.4,
+      "y": 6.37,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 8.18,
+      "y": 9.54,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.67,
+    "objective": "survive_pressure",
+    "opponent_pressing": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 26,
+   "phase": "pressed",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 68,
+    "possession": "us",
+    "possession_age_s": 14,
+    "ball": {
+     "x": 11.75,
+     "y": 5.88
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 1.59,
+      "y": 10.46,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 7.53,
+      "y": 9.18,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.7,
+      "y": 16.38,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.04,
+      "y": 4.33,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.1,
+      "y": 10.58,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 36.98,
+      "y": 10.08,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 24.49,
+      "y": 9.58,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 11.94,
+      "y": 13.35,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 10.1,
+      "y": 6.08,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 8.24,
+      "y": 9.14,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.66,
+    "objective": "survive_pressure",
+    "opponent_pressing": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 27,
+   "phase": "pressed",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 66,
+    "possession": "us",
+    "possession_age_s": 16,
+    "ball": {
+     "x": 13.5,
+     "y": 4.5
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 2.38,
+      "y": 9.99,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 8.06,
+      "y": 8.84,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.41,
+      "y": 16.12,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.92,
+      "y": 4.34,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.6,
+      "y": 11.34,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.25,
+      "y": 10.18,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 24.64,
+      "y": 9.77,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 11.97,
+      "y": 14.34,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 10.82,
+      "y": 6.25,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.44,
+      "y": 9.5,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.65,
+    "objective": "survive_pressure",
+    "opponent_pressing": true
+   },
+   "reference_policy": "COUNTERATTACK",
+   "reference_reason": "we have the ball with at most one opponent goal-side: attack the space now"
+  },
+  {
+   "tick": 28,
+   "phase": "build_own_half",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 64,
+    "possession": "us",
+    "possession_age_s": 18,
+    "ball": {
+     "x": 8.5,
+     "y": 10.0
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 2.02,
+      "y": 9.85,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 7.52,
+      "y": 9.64,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.59,
+      "y": 14.83,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.01,
+      "y": 4.69,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 21.9,
+      "y": 9.6,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 37.99,
+      "y": 9.52,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 30.17,
+      "y": 9.6,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 23.53,
+      "y": 13.45,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 24.38,
+      "y": 6.6,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 18.34,
+      "y": 10.1,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.64,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 29,
+   "phase": "build_own_half",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 62,
+    "possession": "us",
+    "possession_age_s": 20,
+    "ball": {
+     "x": 12.33,
+     "y": 11.83
+    },
+    "attack_direction": "right",
+    "us": [
+     {
+      "x": 2.52,
+      "y": 9.85,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 9.37,
+      "y": 10.12,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.64,
+      "y": 14.97,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.1,
+      "y": 4.21,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 24.39,
+      "y": 10.18,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 38.42,
+      "y": 10.07,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 31.02,
+      "y": 10.15,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.02,
+      "y": 13.44,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 24.95,
+      "y": 6.62,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.73,
+      "y": 9.72,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.63,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 30,
+   "phase": "build_own_half",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 60,
+    "possession": "us",
+    "possession_age_s": 22,
+    "ball": {
+     "x": 23.83,
+     "y": 6.33
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 37.68,
+      "y": 9.56,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 28.9,
+      "y": 10.46,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 22.3,
+      "y": 4.35,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 22.45,
+      "y": 15.95,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 14.11,
+      "y": 9.42,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.14,
+      "y": 9.53,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 8.97,
+      "y": 9.67,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.5,
+      "y": 7.29,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.73,
+      "y": 12.59,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.57,
+      "y": 10.54,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.62,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 31,
+   "phase": "build_own_half",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 58,
+    "possession": "us",
+    "possession_age_s": 24,
+    "ball": {
+     "x": 20.0,
+     "y": 4.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 36.5,
+      "y": 10.38,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 27.7,
+      "y": 9.65,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 20.43,
+      "y": 4.47,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 21.1,
+      "y": 15.57,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 12.37,
+      "y": 8.96,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.36,
+      "y": 9.61,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 7.93,
+      "y": 9.66,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.85,
+      "y": 6.63,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.33,
+      "y": 13.11,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 18.09,
+      "y": 11.3,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.61,
+    "objective": "build_attack"
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 32,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 56,
+    "possession": "us",
+    "possession_age_s": 26,
+    "ball": {
+     "x": 15.5,
+     "y": 4.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.72,
+      "y": 10.42,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.63,
+      "y": 9.93,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.01,
+      "y": 4.37,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.7,
+      "y": 16.18,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.71,
+      "y": 9.65,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.4,
+      "y": 9.51,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.31,
+      "y": 10.24,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.93,
+      "y": 6.8,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 8.25,
+      "y": 12.62,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.51,
+      "y": 10.27,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.6,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 33,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 54,
+    "possession": "us",
+    "possession_age_s": 28,
+    "ball": {
+     "x": 15.3,
+     "y": 6.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.54,
+      "y": 10.07,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.7,
+      "y": 9.84,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.91,
+      "y": 3.75,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.36,
+      "y": 15.79,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.44,
+      "y": 9.95,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.05,
+      "y": 10.36,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.31,
+      "y": 9.61,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 8.15,
+      "y": 7.69,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 7.66,
+      "y": 13.4,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.54,
+      "y": 10.34,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.59,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 34,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 52,
+    "possession": "us",
+    "possession_age_s": 30,
+    "ball": {
+     "x": 15.1,
+     "y": 8.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.97,
+      "y": 10.17,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.11,
+      "y": 10.15,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.6,
+      "y": 4.5,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.97,
+      "y": 15.73,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.18,
+      "y": 10.4,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 0.96,
+      "y": 9.59,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.19,
+      "y": 10.04,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.48,
+      "y": 7.02,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 8.43,
+      "y": 13.81,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.44,
+      "y": 10.45,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.58,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 35,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 50,
+    "possession": "us",
+    "possession_age_s": 32,
+    "ball": {
+     "x": 14.9,
+     "y": 10.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.9,
+      "y": 10.0,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.65,
+      "y": 10.36,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.3,
+      "y": 4.39,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.18,
+      "y": 14.91,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.49,
+      "y": 10.2,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.46,
+      "y": 9.67,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 4.81,
+      "y": 9.97,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.83,
+      "y": 7.31,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 8.18,
+      "y": 13.45,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.52,
+      "y": 10.92,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.56,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 36,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 48,
+    "possession": "us",
+    "possession_age_s": 34,
+    "ball": {
+     "x": 14.7,
+     "y": 12.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 35.22,
+      "y": 9.94,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 20.77,
+      "y": 9.73,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.85,
+      "y": 4.51,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.85,
+      "y": 15.63,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.22,
+      "y": 11.3,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 0.91,
+      "y": 9.82,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.04,
+      "y": 9.54,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.01,
+      "y": 7.34,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 7.56,
+      "y": 14.07,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.68,
+      "y": 11.24,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.55,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 37,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 46,
+    "possession": "us",
+    "possession_age_s": 36,
+    "ball": {
+     "x": 14.5,
+     "y": 14.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.53,
+      "y": 9.96,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.47,
+      "y": 9.66,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.85,
+      "y": 4.98,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.85,
+      "y": 15.48,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 8.93,
+      "y": 11.07,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.35,
+      "y": 9.87,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 4.86,
+      "y": 9.89,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.42,
+      "y": 8.35,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 8.24,
+      "y": 14.07,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.43,
+      "y": 10.86,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.54,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 38,
+   "phase": "they_attack",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 44,
+    "possession": "them",
+    "possession_age_s": 0,
+    "ball": {
+     "x": 20.0,
+     "y": 6.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 38.24,
+      "y": 9.85,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 30.83,
+      "y": 10.4,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 25.07,
+      "y": 6.92,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 26.54,
+      "y": 12.67,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 15.52,
+      "y": 9.77,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.99,
+      "y": 9.68,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 14.04,
+      "y": 10.3,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 19.95,
+      "y": 6.14,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 22.1,
+      "y": 14.47,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 27.58,
+      "y": 10.2,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.53,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in our half: protect the centre and our goal"
+  },
+  {
+   "tick": 39,
+   "phase": "they_attack",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 42,
+    "possession": "them",
+    "possession_age_s": 2,
+    "ball": {
+     "x": 22.25,
+     "y": 7.88
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 37.66,
+      "y": 10.45,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 31.38,
+      "y": 9.91,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 26.32,
+      "y": 6.53,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 28.22,
+      "y": 13.59,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 17.86,
+      "y": 9.64,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 3.35,
+      "y": 10.0,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 15.5,
+      "y": 10.16,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 21.94,
+      "y": 6.37,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.42,
+      "y": 14.1,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 28.91,
+      "y": 10.73,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.52,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in our half: protect the centre and our goal"
+  },
+  {
+   "tick": 40,
+   "phase": "they_attack",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 40,
+    "possession": "them",
+    "possession_age_s": 4,
+    "ball": {
+     "x": 24.5,
+     "y": 9.25
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 38.18,
+      "y": 9.57,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 32.0,
+      "y": 10.48,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 28.16,
+      "y": 6.73,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 29.24,
+      "y": 13.21,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.15,
+      "y": 9.9,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 3.92,
+      "y": 9.55,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 15.67,
+      "y": 10.19,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 23.34,
+      "y": 5.94,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 25.02,
+      "y": 14.01,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 29.73,
+      "y": 10.51,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.51,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in our half: protect the centre and our goal"
+  },
+  {
+   "tick": 41,
+   "phase": "they_attack",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 38,
+    "possession": "them",
+    "possession_age_s": 6,
+    "ball": {
+     "x": 26.75,
+     "y": 10.62
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 38.14,
+      "y": 9.88,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 33.4,
+      "y": 11.14,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 29.96,
+      "y": 6.52,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 30.93,
+      "y": 14.14,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.48,
+      "y": 10.1,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 3.9,
+      "y": 9.78,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 17.08,
+      "y": 9.96,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 24.54,
+      "y": 5.97,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 26.2,
+      "y": 13.86,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 30.72,
+      "y": 10.58,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.5,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in our half: protect the centre and our goal"
+  },
+  {
+   "tick": 42,
+   "phase": "they_attack",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 36,
+    "possession": "them",
+    "possession_age_s": 8,
+    "ball": {
+     "x": 29.0,
+     "y": 12.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 38.07,
+      "y": 9.92,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 33.94,
+      "y": 11.48,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 30.64,
+      "y": 7.2,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 31.99,
+      "y": 13.86,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 21.93,
+      "y": 10.05,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 4.32,
+      "y": 10.25,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 17.55,
+      "y": 9.67,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 26.16,
+      "y": 5.88,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 28.43,
+      "y": 14.11,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 32.33,
+      "y": 10.69,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.49,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in our half: protect the centre and our goal"
+  },
+  {
+   "tick": 43,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 34,
+    "possession": "them",
+    "possession_age_s": 10,
+    "ball": {
+     "x": 8.5,
+     "y": 10.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 35.66,
+      "y": 9.6,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 24.0,
+      "y": 10.07,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 16.29,
+      "y": 5.51,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 15.97,
+      "y": 13.75,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.87,
+      "y": 9.89,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.27,
+      "y": 10.29,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 7.75,
+      "y": 10.45,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.27,
+      "y": 4.74,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 11.71,
+      "y": 15.31,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 19.64,
+      "y": 10.02,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.48,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 44,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 32,
+    "possession": "them",
+    "possession_age_s": 12,
+    "ball": {
+     "x": 9.62,
+     "y": 9.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 35.96,
+      "y": 10.32,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 23.63,
+      "y": 9.89,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.63,
+      "y": 6.38,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.16,
+      "y": 13.66,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.65,
+      "y": 9.83,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.43,
+      "y": 10.37,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 8.94,
+      "y": 9.8,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.25,
+      "y": 5.58,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.42,
+      "y": 15.13,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.31,
+      "y": 10.16,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.47,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 45,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 30,
+    "possession": "them",
+    "possession_age_s": 14,
+    "ball": {
+     "x": 10.75,
+     "y": 8.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.72,
+      "y": 10.34,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 23.23,
+      "y": 9.88,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.13,
+      "y": 6.22,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.82,
+      "y": 13.94,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.77,
+      "y": 8.62,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.4,
+      "y": 10.2,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 9.07,
+      "y": 10.0,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.94,
+      "y": 5.6,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.92,
+      "y": 14.59,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.48,
+      "y": 10.23,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.45,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 46,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 28,
+    "possession": "them",
+    "possession_age_s": 16,
+    "ball": {
+     "x": 11.88,
+     "y": 7.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.01,
+      "y": 9.85,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 22.92,
+      "y": 9.86,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.15,
+      "y": 6.91,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.74,
+      "y": 13.29,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 11.34,
+      "y": 8.9,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.54,
+      "y": 9.93,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 9.82,
+      "y": 10.14,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.32,
+      "y": 6.07,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.22,
+      "y": 15.08,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 21.09,
+      "y": 10.62,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.44,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 47,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 26,
+    "possession": "them",
+    "possession_age_s": 18,
+    "ball": {
+     "x": 13.0,
+     "y": 6.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 33.88,
+      "y": 10.13,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 22.43,
+      "y": 9.78,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.91,
+      "y": 7.23,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 17.08,
+      "y": 13.37,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.68,
+      "y": 7.85,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.31,
+      "y": 9.63,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 10.02,
+      "y": 10.16,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.57,
+      "y": 5.56,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.43,
+      "y": 15.19,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 21.18,
+      "y": 11.03,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.43,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "HIGH_PRESS",
+   "reference_reason": "opponent has the ball in their half and we need it back"
+  },
+  {
+   "tick": 48,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 24,
+    "possession": "us",
+    "possession_age_s": 0,
+    "ball": {
+     "x": 15.5,
+     "y": 4.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 35.35,
+      "y": 10.39,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 22.22,
+      "y": 9.91,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.1,
+      "y": 4.44,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.78,
+      "y": 16.01,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.37,
+      "y": 10.36,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 0.65,
+      "y": 10.15,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.25,
+      "y": 9.7,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 8.43,
+      "y": 7.04,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 7.63,
+      "y": 13.09,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 11.25,
+      "y": 10.13,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.42,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 49,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 22,
+    "possession": "us",
+    "possession_age_s": 2,
+    "ball": {
+     "x": 15.25,
+     "y": 7.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 35.17,
+      "y": 9.95,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.9,
+      "y": 9.55,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.56,
+      "y": 4.12,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.8,
+      "y": 15.68,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.97,
+      "y": 10.02,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.1,
+      "y": 10.38,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.3,
+      "y": 10.36,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.86,
+      "y": 6.91,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 8.43,
+      "y": 13.32,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.32,
+      "y": 10.02,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.41,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 50,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 20,
+    "possession": "us",
+    "possession_age_s": 4,
+    "ball": {
+     "x": 15.0,
+     "y": 9.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.56,
+      "y": 10.04,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.32,
+      "y": 10.35,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.31,
+      "y": 4.98,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.06,
+      "y": 15.24,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.68,
+      "y": 10.64,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 0.71,
+      "y": 10.26,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.21,
+      "y": 9.62,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.42,
+      "y": 7.09,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 7.86,
+      "y": 13.26,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.53,
+      "y": 10.89,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.4,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 51,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 18,
+    "possession": "us",
+    "possession_age_s": 6,
+    "ball": {
+     "x": 14.75,
+     "y": 12.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 34.94,
+      "y": 10.34,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.29,
+      "y": 9.95,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.96,
+      "y": 5.15,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.5,
+      "y": 15.04,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 8.78,
+      "y": 10.69,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 0.67,
+      "y": 9.67,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 4.56,
+      "y": 10.25,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.51,
+      "y": 8.21,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 7.83,
+      "y": 13.37,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.18,
+      "y": 11.08,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.39,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 52,
+   "phase": "low_block_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 16,
+    "possession": "us",
+    "possession_age_s": 8,
+    "ball": {
+     "x": 14.5,
+     "y": 14.5
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 35.05,
+      "y": 10.16,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.35,
+      "y": 10.34,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.38,
+      "y": 5.34,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.65,
+      "y": 15.43,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 8.9,
+      "y": 10.97,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 0.54,
+      "y": 9.77,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 5.15,
+      "y": 10.2,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 7.47,
+      "y": 7.84,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 7.84,
+      "y": 14.22,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.96,
+      "y": 10.75,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.38,
+    "objective": "break_low_block",
+    "opponent_low_block": true
+   },
+   "reference_policy": "KEEP_POSSESSION",
+   "reference_reason": "we have the ball, no quick opening: keep it and build"
+  },
+  {
+   "tick": 53,
+   "phase": "counter_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 14,
+    "possession": "them",
+    "possession_age_s": 0,
+    "ball": {
+     "x": 12.5,
+     "y": 10.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 37.26,
+      "y": 9.56,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 19.52,
+      "y": 9.74,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 10.2,
+      "y": 5.28,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 11.32,
+      "y": 15.01,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 7.33,
+      "y": 10.42,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.85,
+      "y": 9.99,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 12.04,
+      "y": 9.6,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.72,
+      "y": 6.13,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 15.84,
+      "y": 14.35,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 22.38,
+      "y": 9.87,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.37,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 54,
+   "phase": "counter_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 12,
+    "possession": "them",
+    "possession_age_s": 2,
+    "ball": {
+     "x": 18.67,
+     "y": 10.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 37.28,
+      "y": 9.74,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 23.92,
+      "y": 9.83,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 13.24,
+      "y": 4.81,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 14.78,
+      "y": 14.95,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 9.68,
+      "y": 10.37,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.12,
+      "y": 9.89,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 13.03,
+      "y": 10.13,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 18.1,
+      "y": 5.93,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 19.28,
+      "y": 13.72,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 25.49,
+      "y": 10.31,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.36,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 55,
+   "phase": "counter_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 10,
+    "possession": "them",
+    "possession_age_s": 4,
+    "ball": {
+     "x": 24.83,
+     "y": 10.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 38.16,
+      "y": 10.4,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 28.29,
+      "y": 9.45,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 17.04,
+      "y": 4.58,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 18.03,
+      "y": 15.03,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 11.54,
+      "y": 10.42,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.42,
+      "y": 10.12,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 14.65,
+      "y": 9.89,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 21.6,
+      "y": 5.99,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 23.03,
+      "y": 13.6,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 28.59,
+      "y": 9.73,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.34,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 56,
+   "phase": "counter_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 8,
+    "possession": "them",
+    "possession_age_s": 6,
+    "ball": {
+     "x": 31.0,
+     "y": 10.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 38.04,
+      "y": 10.01,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 33.15,
+      "y": 8.85,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 20.29,
+      "y": 4.52,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 22.31,
+      "y": 14.98,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 13.84,
+      "y": 9.82,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 3.24,
+      "y": 10.3,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 16.01,
+      "y": 10.09,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 26.24,
+      "y": 6.23,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 27.01,
+      "y": 14.21,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 31.85,
+      "y": 10.13,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.33,
+    "objective": "stop_counter"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent counterattacking with at most one of our outfield players goal-side"
+  },
+  {
+   "tick": 57,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 6,
+    "possession": "them",
+    "possession_age_s": 8,
+    "ball": {
+     "x": 8.5,
+     "y": 10.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 36.0,
+      "y": 9.74,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 24.45,
+      "y": 9.9,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 16.01,
+      "y": 5.9,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.18,
+      "y": 14.31,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.5,
+      "y": 10.04,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 1.56,
+      "y": 10.12,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 8.08,
+      "y": 9.68,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 11.96,
+      "y": 5.34,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 12.0,
+      "y": 14.52,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.09,
+      "y": 10.45,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.32,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in their half but we are too tired to press"
+  },
+  {
+   "tick": 58,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 4,
+    "possession": "them",
+    "possession_age_s": 10,
+    "ball": {
+     "x": 10.75,
+     "y": 8.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 35.42,
+      "y": 9.85,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 23.35,
+      "y": 10.26,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 15.87,
+      "y": 6.66,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.48,
+      "y": 13.39,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 11.46,
+      "y": 8.78,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.26,
+      "y": 9.84,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 9.29,
+      "y": 10.06,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.47,
+      "y": 5.53,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.34,
+      "y": 14.71,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 20.53,
+      "y": 10.01,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.31,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in their half but we are too tired to press"
+  },
+  {
+   "tick": 59,
+   "phase": "press_them",
+   "event": null,
+   "state": {
+    "score_us": 1,
+    "score_them": 1,
+    "match_length_s": 120,
+    "time_remaining_s": 2,
+    "possession": "them",
+    "possession_age_s": 12,
+    "ball": {
+     "x": 13.0,
+     "y": 6.0
+    },
+    "attack_direction": "left",
+    "us": [
+     {
+      "x": 33.86,
+      "y": 10.34,
+      "id": "us_gk",
+      "role": "GK"
+     },
+     {
+      "x": 21.64,
+      "y": 10.27,
+      "id": "us_def",
+      "role": "DEF"
+     },
+     {
+      "x": 14.6,
+      "y": 7.33,
+      "id": "us_ml",
+      "role": "MID"
+     },
+     {
+      "x": 16.8,
+      "y": 13.09,
+      "id": "us_mr",
+      "role": "MID"
+     },
+     {
+      "x": 10.95,
+      "y": 8.48,
+      "id": "us_fwd",
+      "role": "FWD"
+     }
+    ],
+    "them": [
+     {
+      "x": 2.39,
+      "y": 9.5,
+      "id": "them_gk",
+      "role": "GK"
+     },
+     {
+      "x": 9.71,
+      "y": 10.17,
+      "id": "them_def",
+      "role": "DEF"
+     },
+     {
+      "x": 12.89,
+      "y": 6.48,
+      "id": "them_ml",
+      "role": "MID"
+     },
+     {
+      "x": 13.57,
+      "y": 15.44,
+      "id": "them_mr",
+      "role": "MID"
+     },
+     {
+      "x": 21.31,
+      "y": 10.53,
+      "id": "them_fwd",
+      "role": "FWD"
+     }
+    ],
+    "stamina": 0.3,
+    "objective": "win_ball_back"
+   },
+   "reference_policy": "LOW_BLOCK",
+   "reference_reason": "opponent has the ball in their half but we are too tired to press"
+  }
+ ]
+}

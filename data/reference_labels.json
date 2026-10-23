@@ -1,0 +1,226 @@
+{
+ "losing_late": {
+  "policy": "HIGH_PRESS",
+  "reason": "opponent has the ball in their half and we need it back"
+ },
+ "protect_lead": {
+  "policy": "PROTECT_LEAD",
+  "reason": "winning with the ball in the last 30 s: keep it safe and run the clock"
+ },
+ "regain_space": {
+  "policy": "COUNTERATTACK",
+  "reason": "we have the ball with at most one opponent goal-side: attack the space now"
+ },
+ "hold_near_goal": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "aggressive_press": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "defend_counter": {
+  "policy": "LOW_BLOCK",
+  "reason": "opponent counterattacking with at most one of our outfield players goal-side"
+ },
+ "tired_few_options": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "facing_low_block": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "losing_late_v1": {
+  "policy": "HIGH_PRESS",
+  "reason": "opponent has the ball in their half and we need it back"
+ },
+ "losing_late_v2": {
+  "policy": "HIGH_PRESS",
+  "reason": "opponent has the ball in their half and we need it back"
+ },
+ "losing_late_v3": {
+  "policy": "HIGH_PRESS",
+  "reason": "opponent has the ball in their half and we need it back"
+ },
+ "losing_late_v4": {
+  "policy": "HIGH_PRESS",
+  "reason": "opponent has the ball in their half and we need it back"
+ },
+ "losing_late_v5": {
+  "policy": "HIGH_PRESS",
+  "reason": "opponent has the ball in their half and we need it back"
+ },
+ "losing_late_v6": {
+  "policy": "HIGH_PRESS",
+  "reason": "opponent has the ball in their half and we need it back"
+ },
+ "protect_lead_v1": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "protect_lead_v2": {
+  "policy": "PROTECT_LEAD",
+  "reason": "winning with the ball in the last 30 s: keep it safe and run the clock"
+ },
+ "protect_lead_v3": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "protect_lead_v4": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "protect_lead_v5": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "protect_lead_v6": {
+  "policy": "PROTECT_LEAD",
+  "reason": "winning with the ball in the last 30 s: keep it safe and run the clock"
+ },
+ "regain_space_v1": {
+  "policy": "COUNTERATTACK",
+  "reason": "we have the ball with at most one opponent goal-side: attack the space now"
+ },
+ "regain_space_v2": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "regain_space_v3": {
+  "policy": "COUNTERATTACK",
+  "reason": "we have the ball with at most one opponent goal-side: attack the space now"
+ },
+ "regain_space_v4": {
+  "policy": "COUNTERATTACK",
+  "reason": "we have the ball with at most one opponent goal-side: attack the space now"
+ },
+ "regain_space_v5": {
+  "policy": "PROTECT_LEAD",
+  "reason": "winning with the ball in the last 30 s: keep it safe and run the clock"
+ },
+ "regain_space_v6": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "hold_near_goal_v1": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "hold_near_goal_v2": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "hold_near_goal_v3": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "hold_near_goal_v4": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "hold_near_goal_v5": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "hold_near_goal_v6": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "aggressive_press_v1": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "aggressive_press_v2": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "aggressive_press_v3": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "aggressive_press_v4": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "aggressive_press_v5": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "aggressive_press_v6": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "defend_counter_v1": {
+  "policy": "LOW_BLOCK",
+  "reason": "opponent counterattacking with at most one of our outfield players goal-side"
+ },
+ "defend_counter_v2": {
+  "policy": "LOW_BLOCK",
+  "reason": "opponent counterattacking with at most one of our outfield players goal-side"
+ },
+ "defend_counter_v3": {
+  "policy": "LOW_BLOCK",
+  "reason": "opponent counterattacking with at most one of our outfield players goal-side"
+ },
+ "defend_counter_v4": {
+  "policy": "LOW_BLOCK",
+  "reason": "opponent counterattacking with at most one of our outfield players goal-side"
+ },
+ "defend_counter_v5": {
+  "policy": "LOW_BLOCK",
+  "reason": "opponent counterattacking with at most one of our outfield players goal-side"
+ },
+ "defend_counter_v6": {
+  "policy": "LOW_BLOCK",
+  "reason": "opponent counterattacking with at most one of our outfield players goal-side"
+ },
+ "tired_few_options_v1": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "tired_few_options_v2": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "tired_few_options_v3": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "tired_few_options_v4": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "tired_few_options_v5": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "tired_few_options_v6": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "facing_low_block_v1": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "facing_low_block_v2": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "facing_low_block_v3": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "facing_low_block_v4": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ },
+ "facing_low_block_v5": {
+  "policy": null,
+  "reason": "ambiguous: losing in the last 15 s, no open space (no all-out-attack option)"
+ },
+ "facing_low_block_v6": {
+  "policy": "KEEP_POSSESSION",
+  "reason": "we have the ball, no quick opening: keep it and build"
+ }
+}

@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: matchsense
+Version: 0.1.0
+Summary: Strands Decider 2B watches the match; Amazon Nova speaks when tactics change.
+License: Apache-2.0
+Requires-Python: >=3.11
+Requires-Dist: fastapi==0.161.1
+Requires-Dist: uvicorn==0.54.0
+Requires-Dist: pydantic==2.14.1
+Requires-Dist: strands-agents==1.62.0
+Requires-Dist: boto3==1.43.118
+Requires-Dist: httpx==0.28.1
+Provides-Extra: dev
+Requires-Dist: pytest==9.1.1; extra == "dev"

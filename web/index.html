@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MatchSense — Decider watches the match, Nova speaks when tactics change</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script type="module" src="/static/app.js"></script>
+  <script type="module" src="/static/watch.js"></script>
+</head>
+<body>
+  <div id="mock-banner" class="mock-banner" hidden role="alert">MOCK MODE — NOT A REAL MODEL RESULT</div>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 6l4 3-1.5 5h-5L8 9z" fill="currentColor"/></svg>
+      <div>
+        <h1>MatchSense</h1>
+        <p class="tagline">Strands Decider 2B watches every moment · Amazon Nova speaks when tactics change</p>
+      </div>
+    </div>
+    <div class="status">
+      <span id="mode-badge" class="badge mode">…</span>
+      <span id="decider-status" class="pill" title="Decider health">Decider …</span>
+      <span id="bedrock-status" class="pill" title="Bedrock reachability">Bedrock …</span>
+      <span class="pill tag">#policy</span>
+      <span class="pill tag">#strands-decider-2b</span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" class="tab active" data-tab="watch" aria-selected="true">Watch</button>
+    <button role="tab" class="tab" data-tab="replay" aria-selected="false">Detailed replay</button>
+    <button role="tab" class="tab" data-tab="lab" aria-selected="false">Try a situation</button>
+    <button role="tab" class="tab" data-tab="bench" aria-selected="false">Results</button>
+  </nav>
+
+  <div id="error-box" class="error-box" hidden role="alert"></div>
+
+  <!-- ============================== WATCH (simple story view) ============================== -->
+  <main id="tab-watch" class="tabpanel">
+    <section class="w-hero">
+      <h2>Which tactic should <span class="blue">BLUE</span> play right now?</h2>
+      <p>Every 2 seconds of the match, two AI "coaches" answer that question for the <b class="blue">BLUE</b> team.
+        We check who answers <b>right</b>, how <b>fast</b> (a football agent gets 1 second), and how many <b>paid LLM calls</b> it needs.</p>
+    </section>
+
+    <section class="w-bar">
+      <label>Match <select id="w-match"></select></label>
+      <button id="w-play" class="btn primary">▶ Play</button>
+      <button id="w-restart" class="btn">↺ Restart</button>
+      <label>Speed <select id="w-speed"><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option></select></label>
+      <label class="check" title="Nova Pro decides instead when Decider is less than 30% sure"><input type="checkbox" id="w-help"> Let Nova Pro help when Strands Decider 2B is unsure</label>
+      <span class="sep"></span>
+      <span id="w-source" class="source-label">loading…</span>
+    </section>
+
+    <div class="w-grid">
+      <section class="card w-match">
+        <div class="w-score">
+          <span class="team us">● BLUE</span><span id="w-score" class="score">0 – 0</span><span class="team them">ORANGE ●</span>
+          <span id="w-clock" class="clock">2:00</span>
+        </div>
+        <div id="w-situation" class="w-situation">—</div>
+        <div id="w-pitch" class="pitch"></div>
+        <div class="pitch-legend small"><span><i class="dot blue"></i>BLUE (us)</span><span><i class="dot orange"></i>ORANGE (opponent)</span><span><i class="ring"></i>has the ball</span><span class="muted">Scripted replay: players follow a fixed script.</span></div>
+      </section>
+
+      <section class="w-coaches">
+        <div class="w-progress"><span id="w-moment">Moment 0 of 60</span><div class="w-track"><i id="w-track"></i></div></div>
+        <div class="coach a" id="w-a"></div>
+        <div class="coach b" id="w-b"></div>
+      </section>
+    </div>
+
+    <details class="card w-io" id="w-io">
+      <summary><b>See exactly what each model received and returned at this moment</b> <span class="muted small">— the real inputs and outputs, for anyone who wants the details</span></summary>
+      <div id="w-io-body" class="w-io-grid"><p class="muted">Loading…</p></div>
+    </details>
+
+    <section class="card w-totals">
+      <h3 id="w-totals-title">Score so far</h3>
+      <table id="w-table" class="w-table"></table>
+      <p class="muted small">Recorded real run: real Strands Decider and Amazon Nova calls, with the times measured then. "Right" = matches our written answer key. Bedrock cost only.</p>
+    </section>
+
+    <section class="w-tactics small">
+      <span><i style="background:var(--HIGH_PRESS)"></i><b>HIGH PRESS</b> chase the ball to win it back</span>
+      <span><i style="background:var(--COUNTERATTACK)"></i><b>COUNTERATTACK</b> just won it — attack fast</span>
+      <span><i style="background:var(--KEEP_POSSESSION)"></i><b>KEEP POSSESSION</b> safe passes</span>
+      <span><i style="background:var(--PROTECT_LEAD)"></i><b>PROTECT LEAD</b> ahead late — no risks</span>
+      <span><i style="background:var(--LOW_BLOCK)"></i><b>LOW BLOCK</b> they attack — defend deep</span>
+    </section>
+
+    <dialog id="w-plan" class="w-dialog"><form method="dialog"><button class="btn small" aria-label="Close">✕ Close</button></form><div id="w-plan-body"></div></dialog>
+  </main>
+
+  <!-- ============================== MATCH REPLAY ============================== -->
+  <main id="tab-replay" class="tabpanel" hidden>
+    <section class="card howto">
+      <p class="howto-lead">You are watching the <b class="blue">BLUE team</b>. The match is a <b>scripted replay</b> — players follow a fixed script and do not react to the decisions.
+        Every 2 seconds of match time there is a <b>decision moment</b> (a 2-minute match has 60). At each moment <b>two different "tactics brains" look at the same situation</b> and each picks one of 5 tactics for BLUE.
+        We compare <b>who picks the right tactic, how fast, and how many paid LLM calls</b> each needs.</p>
+      <div class="brains">
+        <div class="brain a"><b>Brain 1 · our agent</b> — <b>Strands Decider 2B</b> (small, fast model) picks the tactic; <b>Amazon Nova Pro</b> writes a coaching plan only when the tactic changes.</div>
+        <div class="brain b"><b>Brain 2 · LLM-only</b> — a large language model (Amazon Nova) is asked at <i>every</i> moment, the usual way agents are built.</div>
+      </div>
+    </section>
+    <section class="card controls">
+      <div class="row wrap">
+        <label>Match <select id="rp-match"></select></label>
+        <label>Compare with (LLM-only)
+          <select id="rp-baseline">
+            <option value="B2">Nova Pro decides + plans at every moment</option>
+            <option value="B1">Nova Micro decides at every moment</option>
+          </select>
+        </label>
+<label>Our agent
+          <select id="rp-agent">
+            <option value="A">Decider decides (Nova writes plans)</option>
+            <option value="A2">Decider + Nova Pro when Decider is unsure</option>
+          </select>
+        </label>
+        <label class="check"><input type="checkbox" id="rp-paced" checked> Real match speed (a decision every 2 s)</label>
+        <button id="rp-live" class="btn primary">Run live</button>
+        <button id="rp-stop" class="btn" disabled>Stop</button>
+        <span class="sep"></span>
+        <label>Stored run <select id="rp-stored"><option value="">—</option></select></label>
+        <button id="rp-load" class="btn">Open playback</button>
+      </div>
+      <div class="row wrap playback">
+        <button id="rp-play" class="btn small" disabled>▶ Play</button>
+        <button id="rp-step" class="btn small" disabled>Step ›</button>
+        <label>Speed <select id="rp-speed"><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option><option value="8">8×</option></select></label>
+        <input type="range" id="rp-scrub" min="0" max="0" value="0" disabled aria-label="Decision moment">
+        <span id="rp-source" class="source-label">No run loaded</span>
+      </div>
+    </section>
+
+    <section class="card flow-card">
+      <div class="flow-head"><h3 id="rp-moment">How each moment is decided</h3><span class="muted small">Steps light up when they happen; dimmed steps were skipped at this moment.</span></div>
+      <div id="rp-flow" class="flow"><p class="muted">Open a stored run (or Run live) to see the flow for each moment.</p></div>
+    </section>
+
+    <div class="replay-grid">
+      <section class="card pitch-card">
+        <div class="scoreboard">
+          <span class="team us">● BLUE <small>(our team)</small></span>
+          <span id="rp-score" class="score">0 – 0</span>
+          <span class="team them">ORANGE <small>(opponent, scripted)</small> ●</span>
+          <span id="rp-clock" class="clock" title="time left">2:00</span>
+        </div>
+        <div id="rp-situation" class="situation">Pick a stored run and press Open playback, or Run live.</div>
+        <div id="rp-pitch" class="pitch"></div>
+        <div class="pitch-legend small">
+          <span><i class="dot blue"></i>BLUE = our team</span><span><i class="dot orange"></i>ORANGE = opponent</span>
+          <span><i class="dot ball"></i>ball</span><span><i class="ring"></i>has the ball</span>
+          <span>GK goalkeeper · D defender · M midfielder · F forward</span>
+        </div>
+        <details class="read-box">
+          <summary>What both brains read at this moment <span class="muted small">(written by code from the pitch)</span></summary>
+          <p id="rp-state-text" class="state-text muted">—</p>
+        </details>
+        <p class="ref-line">Answer key <span class="muted">(our written rule)</span>: <b id="rp-ref">—</b> <span id="rp-ref-reason" class="muted"></span></p>
+      </section>
+
+      <section class="lanes">
+        <div class="lane-caption">Same moment, two brains — what tactic should BLUE play now?</div>
+        <div class="lane lane-a" id="lane-A"></div>
+        <div class="lane lane-b" id="lane-B"></div>
+      </section>
+    </div>
+
+    <section class="card">
+      <h3>Tactic timeline <span class="muted small">— one cell = one decision moment (every 2 s), colour = tactic chosen. ● = Nova wrote a plan · ✕ = took longer than 1 s · bottom row = answer key. Click a cell to jump there.</span></h3>
+      <div id="rp-timeline" class="timeline"></div>
+      <div class="glossary small">
+        <span><i style="background:var(--HIGH_PRESS)"></i><b>HIGH_PRESS</b> chase the ball high up the pitch to win it back</span>
+        <span><i style="background:var(--COUNTERATTACK)"></i><b>COUNTERATTACK</b> we just won it — attack the open space fast</span>
+        <span><i style="background:var(--KEEP_POSSESSION)"></i><b>KEEP_POSSESSION</b> safe passes, build patiently</span>
+        <span><i style="background:var(--PROTECT_LEAD)"></i><b>PROTECT_LEAD</b> ahead late on — no risks, run the clock</span>
+        <span><i style="background:var(--LOW_BLOCK)"></i><b>LOW_BLOCK</b> they are attacking — drop deep and protect our goal</span>
+      </div>
+    </section>
+
+    <section class="plans-grid">
+      <div class="card"><h3 id="plans-A-title">Our agent — Nova plans <span class="muted small">model-generated recommendation</span></h3><div id="plans-A" class="plans"></div></div>
+      <div class="card"><h3 id="plans-B-title">LLM-only — Nova plans <span class="muted small">model-generated recommendation</span></h3><div id="plans-B" class="plans"></div></div>
+    </section>
+  </main>
+
+  <!-- ============================== MATCH LAB ============================== -->
+  <main id="tab-lab" class="tabpanel" hidden>
+    <div class="lab-grid">
+      <section class="card">
+        <h3>Situation for <span class="blue">BLUE</span> (our team) <span class="muted small">— ORANGE is the opponent</span></h3>
+        <label class="block">Scenario <select id="lab-scenario"></select></label>
+        <div class="form-grid">
+          <label>Our score <input type="number" id="f-score-us" min="0" max="30"></label>
+          <label>Their score <input type="number" id="f-score-them" min="0" max="30"></label>
+          <label>Time left (s) <input type="number" id="f-time" min="0" max="3600"></label>
+          <label>Possession <select id="f-poss"><option value="us">us</option><option value="them">them</option><option value="loose">loose</option></select></label>
+          <label>Stamina (0–1) <input type="number" id="f-stamina" min="0" max="1" step="0.05"></label>
+          <label>Opponents near ball <input type="number" id="f-density" min="0" max="5" placeholder="auto"></label>
+          <label class="span2">Objective
+            <select id="f-objective">
+              <option>score_now</option><option>build_attack</option><option>keep_lead</option><option>win_ball_back</option>
+              <option>exploit_space</option><option>survive_pressure</option><option>stop_counter</option><option>break_low_block</option>
+            </select>
+          </label>
+          <label class="check"><input type="checkbox" id="f-press"> Opponent pressing</label>
+          <label class="check"><input type="checkbox" id="f-block"> Opponent low block</label>
+        </div>
+        <div id="lab-pitch" class="pitch small-pitch"></div>
+        <p class="muted small">Drag the ball or any player on the pitch to edit the state.</p>
+        <h4>State text sent to Decider and Nova</h4>
+        <p id="lab-text" class="state-text"></p>
+        <p class="ref-line">Reference label: <b id="lab-ref">—</b> <span id="lab-ref-reason" class="muted"></span></p>
+        <div class="row wrap">
+          <button class="btn primary" id="lab-run-a">Run our agent</button>
+          <label>LLM-only <select id="lab-baseline"><option value="B2">Nova Pro</option><option value="B1">Nova Micro</option></select></label>
+          <label>Our agent <select id="lab-agent"><option value="A">Decider decides</option><option value="A2">Decider + Nova Pro when unsure</option></select></label>
+          <button class="btn" id="lab-run-b">Run LLM-only</button>
+          <button class="btn accent" id="lab-run-both">Run Both on Same State</button>
+        </div>
+      </section>
+      <section class="lab-results">
+        <div class="lane lane-a" id="lab-A"><div class="lane-head"><h3>Our agent</h3></div><p class="muted">Not run yet.</p></div>
+        <div class="lane lane-b" id="lab-B"><div class="lane-head"><h3>LLM-only</h3></div><p class="muted">Not run yet.</p></div>
+      </section>
+    </div>
+    <details class="card explain" id="lab-explain">
+      <summary>How the <code>#policy</code> pattern works</summary>
+      <div id="lab-explain-body"><p class="muted">Run our agent to see the raw Decider exchange.</p></div>
+    </details>
+  </main>
+
+  <!-- ============================== BENCHMARK ============================== -->
+  <main id="tab-bench" class="tabpanel" hidden>
+    <section class="card controls">
+      <div class="row wrap">
+        <label class="check"><input type="checkbox" id="b-variants" checked> Labelled variant suite</label>
+        <label class="check"><input type="checkbox" id="b-matches"> Scripted matches (3 matches × 60 moments)</label>
+        <label>Trials <input type="number" id="b-trials" value="1" min="1" max="5"></label>
+        <label title="Below this Decider confidence, the 'Decider + Nova Pro when unsure' agent asks Nova Pro">Nova Pro takes over below <input type="number" id="b-threshold" step="0.05" min="0" max="1"></label>
+        <label>Max variant items <input type="number" id="b-max" min="1" placeholder="all"></label>
+        <button class="btn primary" id="b-run">Run benchmark</button>
+        <span class="sep"></span>
+        <label>Stored <select id="b-stored"><option value="">—</option></select></label>
+        <button class="btn" id="b-load">Load</button>
+      </div>
+      <p class="muted small" id="b-models"></p>
+      <div class="progress"><div id="b-bar" class="bar"></div></div>
+      <p id="b-progress" class="muted small"></p>
+    </section>
+    <section id="b-results" hidden>
+      <div class="card">
+        <div class="row wrap"><h3 id="b-title">Results</h3><span class="sep"></span>
+          <a id="b-csv" class="btn small" href="#">Export CSV</a><a id="b-json" class="btn small" href="#">Export JSON</a></div>
+        <p id="b-warn" class="warn" hidden></p>
+        <div class="table-wrap"><table id="b-table" class="metrics"></table></div>
+        <p class="muted small">Cost covers Amazon Bedrock tokens only. The hosted Decider's cost is not included (no real figure available) and is not zero.</p>
+      </div>
+      <div class="charts">
+        <div class="card"><h4>Decision latency p50 / p95 (ms)</h4><canvas id="c-lat"></canvas></div>
+        <div class="card"><h4>Accuracy vs reference labels</h4><canvas id="c-acc"></canvas></div>
+        <div class="card"><h4>Bedrock calls per match</h4><canvas id="c-calls"></canvas></div>
+        <div class="card"><h4>Bedrock cost per match (USD)</h4><canvas id="c-cost"></canvas></div>
+      </div>
+      <div class="charts">
+        <div class="card"><h4>How often Decider's own pick is right, by how sure it was</h4><div id="b-buckets" class="table-wrap"></div></div>
+        <div class="card"><h4>"Nova Pro takes over below" — what other bars would give <span class="muted small">(simulated from recorded answers)</span></h4><div id="b-sweep" class="table-wrap"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot muted small">
+    MatchSense · Apache-2.0 · Inspired by AWS's Agentic Football Cup (independent; no game engine). Built with the AWS User Group Madurai Strands Decider hackathon kit.
+    Plans are model-generated recommendations, not proven strategy.
+  </footer>
+</body>
+</html>

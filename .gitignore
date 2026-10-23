@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+results/*
+!results/.gitkeep
+.DS_Store
+.decider-venv/
