@@ -2,12 +2,21 @@
 
 `#strands-decider-2b` `#policy`
 
+[![MatchSense demo video](docs/images/cover_pixel.png)](https://youtu.be/6mdD8ozuak0)
+
+| | |
+|---|---|
+| 🎬 **Demo video (2:34)** | https://youtu.be/6mdD8ozuak0 |
+| 📝 **Article (AWS Builder Center)** | [MatchSense: Agentic Football Cup–style tactics with Strands Decider 2B and Amazon Nova](https://builder.aws.com/project/3KsBgOI0tBqm2LRchtAtqFUcTTb/matchsense-agentic-football-cup-style-tactics-with-strands-decider-2b-and-amazon-nova) |
+| 📓 **Walkthrough notebook** (no keys needed) | [`notebooks/matchsense_walkthrough.ipynb`](notebooks/matchsense_walkthrough.ipynb) |
+| 🧩 **Reusable pattern** | [`decider_gate.py`](src/matchsense/decider_gate.py) (Strands `InterventionHandler`) · [`docs/DECISION_PATTERN.md`](docs/DECISION_PATTERN.md) |
+
 A five-a-side football tactical agent for the **AWS Agent Experience Hackathon: Strands Decider**.
 Every 2-second tick, **Strands Decider 2B** classifies the match state into one of five tactical
 policies with one typed `choice` question. **Amazon Nova** (on Amazon Bedrock, via Strands Agents)
 writes a tactical plan **only when the policy changes** or Decider is unsure.
 
-Inspired by AWS's Agentic Football Cup (independent of it: no game engine, scripted matches).
+Inspired by AWS's Agentic Football Cup, where agents decide every two seconds (independent of it: no game engine, scripted matches; the 1-second decision budget is ours).
 Built with the AWS User Group Madurai Strands Decider hackathon kit.
 
 ## The decision handed to Decider
@@ -113,7 +122,7 @@ The server has **no authentication**; keep it on localhost (it spends your Bedro
 ## Test and benchmark
 
 ```bash
-pytest -q                                              # 61 tests, all external services mocked
+pytest -q                                              # 64 tests, all external services mocked
 python scripts/run_benchmark.py --suites variants matches
 python scripts/ui_check.py                             # headless check of the three tabs (needs playwright)
 ```
@@ -136,6 +145,6 @@ Nova Pro then wrote one structured plan (1,260 in / 428 out tokens, $0.0024).
 ## Layout
 
 `src/matchsense/` (core) · `web/` (single page, SVG pitch, Chart.js from CDN) · `data/` · `scripts/` ·
-`tests/` · `docs/` (architecture, pattern, methodology, article draft, video script, checklist, results).
+`tests/` · `docs/` (architecture, pattern, methodology, article, video script, checklist, results, images) · `notebooks/` (walkthrough).
 
 License: Apache-2.0.

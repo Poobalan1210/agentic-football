@@ -300,6 +300,8 @@ Let the "Nova Pro when unsure" variant act on Decider's pick *immediately* and l
 
 - 🎬 **Demo video (2:34):** https://youtu.be/6mdD8ozuak0
 - 💻 **GitHub repo:** https://github.com/Poobalan1210/agentic-football
+- 📝 **This article on AWS Builder Center:** https://builder.aws.com/project/3KsBgOI0tBqm2LRchtAtqFUcTTb/matchsense-agentic-football-cup-style-tactics-with-strands-decider-2b-and-amazon-nova
+- 📓 **Walkthrough notebook (no keys needed):** https://github.com/Poobalan1210/agentic-football/blob/HEAD/notebooks/matchsense_walkthrough.ipynb
 - 🧩 **Reusable pattern, Strands wiring:** [`src/matchsense/decider_gate.py`](https://github.com/Poobalan1210/agentic-football/blob/HEAD/src/matchsense/decider_gate.py) (`DeciderPolicyGate`, a Strands `InterventionHandler`)
 - 🧩 **Reusable pattern, plain function:** [`src/matchsense/policy_decision.py`](https://github.com/Poobalan1210/agentic-football/blob/HEAD/src/matchsense/policy_decision.py)
 - 📘 **How to reuse the pattern:** [`docs/DECISION_PATTERN.md`](https://github.com/Poobalan1210/agentic-football/blob/HEAD/docs/DECISION_PATTERN.md)
