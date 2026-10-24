@@ -6,7 +6,7 @@
 
 ## The problem: an LLM at every moment
 
-AWS's Agentic Football Cup gives each agent a decision point every 2 seconds and 1 second to answer. The obvious way to build that agent is to give the state to a large language model at every point and ask it what to do. Over a two-minute match that's 60 large-model calls, and most of them come back with "keep doing what you're doing". It's also too slow: in my runs Amazon Nova Pro took about 4 seconds per answer, so it missed every 1-second deadline.
+In AWS's Agentic Football Cup, teams of five autonomous agents make decisions every two seconds. I gave each decision a 1-second budget, so the agent can act well inside the 2-second window. The obvious way to build that agent is to give the state to a large language model at every point and ask it what to do. Over a two-minute match that's 60 large-model calls, and most of them come back with "keep doing what you're doing". It's also too slow: in my runs Amazon Nova Pro took about 4 seconds per answer, so it missed every 1-second deadline.
 
 I wanted to test one claim and report the results whichever way they went:
 
@@ -16,11 +16,11 @@ I wanted to test one claim and report the results whichever way they went:
 
 ## How this relates to the Agentic Football Cup
 
-MatchSense is inspired by the Cup but independent of it: it doesn't run on the Cup's game or compete in it. I took the Cup's timing and asked what happens if the LLM call made at every moment is handed to Strands Decider 2B instead.
+MatchSense is inspired by the Cup but independent of it: it doesn't run on the Cup's game or compete in it. I took the Cup's 2-second rhythm and asked what happens if the LLM call made at every moment is handed to Strands Decider 2B instead.
 
 | | Agentic Football Cup | MatchSense |
 |---|---|---|
-| Timing | a decision every 2 s, 1 s to answer | **same**: 60 moments per 2-minute match, each checked against a 1-second deadline |
+| Timing | decisions every 2 seconds | **same 2-second rhythm**: 60 moments per 2-minute match. The 1-second deadline per decision is my own budget, not a Cup rule |
 | The match | a live game | **scripted** five-a-side matches (3 × 60 moments with goals, turnovers, a late comeback and a protected lead). Players follow the script and don't react to the decisions |
 | What is decided | the agent's actions in the game | **the team tactic only** (one of five), plus a written coaching plan when it changes. Nothing moves players |
 | How it's judged | the match result | an **answer key** I wrote: a rule-based correct tactic for each moment, so every agent is scored on the same moments |
@@ -265,6 +265,12 @@ Let the "Nova Pro when unsure" variant act on Decider's pick *immediately* and l
 6. Count every LLM call, including hand-overs and retries. A hybrid can quietly cost more than the agent it replaces.
 
 *Plans are model-generated recommendations, not proven strategy. Matches are scripted; players don't react to the decisions.* Inspired by AWS's Agentic Football Cup (independent of it). Built with the AWS User Group Madurai Strands Decider hackathon kit. Strands Decider and Strands Agents are Apache-2.0; this project is Apache-2.0.
+
+## Sources and assumptions
+
+- **About the Agentic Football Cup:** what this article says about the Cup (teams of five autonomous agents making decisions every two seconds, built with Amazon Bedrock and the Strands Agents SDK) comes from AWS's public event pages, for example [AWS Startups: Agentic Football Cup](https://startups.aws.com/events/agentic-football-cup-gurgaon-build-ai-agents-that-play-football) and the [Agentic Football Cup Poland event](https://awsagenticfootballcuppoland.splashthat.com/). MatchSense does not use the Cup's game, rules engine or code, and is not affiliated with or endorsed by the Cup.
+- **The 1-second deadline is mine.** I chose it as a budget inside the Cup's 2-second rhythm. It is not an official Cup rule.
+- **Everything else is measured or written by me:** the scripted matches, the answer key, and every benchmark number, from the stored runs in the repo.
 
 ## Resources
 
