@@ -30,30 +30,53 @@ flowchart LR
   T --> B2[LLM-only: Nova Pro decides + plans every tick]
 ```
 
-## Measured results (real run, 2026-10-23, `docs/results/bench_cli_20261023_233703.json`)
+## Measured results (final real run, 2026-10-24, `docs/results/bench_cli_20261024_023923.json`)
 
 Our agent comes in two variants; both use Decider for the tactic and Nova Pro for the plan (written only
-when the tactic changes). Compared with two LLM-only agents on the same 3 scripted matches (180 ticks,
-173 labelled). Decider v19 local on an Apple M4 (MLX). The 30% bar and Nova Pro as the helper were chosen
-on a separate set of 56 scenarios.
+when there is no plan for the current tactic). Compared with two LLM-only agents on the same 3 scripted
+matches (180 moments, 173 with an answer key). Decider v19 local on an Apple M4 (MLX); Nova on Bedrock
+us-east-1. The 30% bar and Nova Pro as the helper were chosen on a separate set of 56 scenarios.
 
-| | **Decider decides** | **Decider + Nova Pro when unsure** | Nova Micro decides every tick | Nova Pro decides + plans every tick |
+| | **Decider decides** | **Decider + Nova Pro when unsure** | Nova Micro decides every moment | Nova Pro decides + plans every moment |
 |---|---|---|---|---|
-| Accuracy vs our reference labels (n=173) | 69.4% | **80.3%** | 48.5% | 79.2% |
-| Decision time p50 / p95 | **0.42 s** / 0.82 s | 0.97 s / 2.59 s | 0.99 s / 1.26 s | 4.09 s / 6.40 s |
-| Decided within 1 s | **98%** | 50% | 55% | 0% |
-| Bedrock calls / match | **15.3** | 44.7 | 78.3 | 60.3 |
-| Bedrock cost / match | **$0.035** | $0.068 | $0.045 | $0.153 |
+| Right tactic (n=173) | 69.4% | **82.1%** | 48.6% | 79.2% |
+| Decision time p50 / p95 | **0.37 s** / 0.78 s | 0.76 s / 2.50 s | 1.01 s / 1.19 s | 3.98 s / 5.01 s |
+| Decided within 1 s | **100%** | 53% | 42% | 0% |
+| Bedrock calls / match | **15.7** | 44.7 | 79.3 | 60.7 |
+| Bedrock cost / match | **$0.036** | $0.068 | $0.048 | $0.154 |
+| Errors / incomplete | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 |
+
+On the 56 scenarios (n=55 labelled): Decider 74.5%, Decider + Nova Pro 81.8%, Nova Micro 45.5%, Nova Pro 65.5%.
 
 How to read it:
-- **Decider decides** is the simplest and fastest option. It meets the 1-second deadline, needs about a quarter of the
-  Bedrock calls, and costs ~77% less than the Nova-Pro-every-tick agent, at 10 points lower accuracy.
-- **+ Nova Pro when unsure** hands the 47% of ticks where Decider is under 30% sure to Nova Pro.
-  It matches the Nova-Pro-every-tick agent on accuracy (80.3% vs 79.2%) with 26% fewer Bedrock calls and 56% lower cost,
-  but those handed-over ticks take ~2 s.
-- If Nova Pro fails on a handed-over tick, Decider's pick is used, so the agent always has a tactic.
-- Not included: Decider's own compute cost (local here; hosted is not free). Through the hosted API, the same
-  Decider took ~2.4 s per call (earlier run). One trial per tick; labels are ours.
+- **Decider decides** is the fastest and cheapest: every decision within 1 second, about a quarter of the
+  Bedrock calls and ~77% lower Bedrock cost than the Nova-Pro-every-moment agent, at ~10 points lower accuracy.
+- **+ Nova Pro when unsure** hands the 47% of moments where Decider is under 30% sure to Nova Pro: the most
+  accurate option (82.1% vs 79.2%), with 26% fewer Bedrock calls and 56% lower cost — but those handed-over
+  moments take ~2 s.
+- Not included: Decider's own compute (local here; hosted is not free). Through the hosted API the same
+  Decider took ~2.4 s per call (earlier run). One trial per moment; labels are ours.
+
+## The pattern as a Strands `InterventionHandler`
+
+[`src/matchsense/decider_gate.py`](src/matchsense/decider_gate.py) packages the decision for **any Strands agent**:
+
+```python
+from strands import Agent
+from matchsense.decider_gate import DeciderPolicyGate
+from matchsense.decider_client import DeciderClient
+from matchsense.policy_decision import QUESTION, POLICY_OPTIONS
+
+planner = Agent(model=nova_pro, system_prompt=PLANNER_SYSTEM,
+                interventions=[DeciderPolicyGate(DeciderClient(), QUESTION, POLICY_OPTIONS)])
+planner("Write the plan.", invocation_state={"state_text": state_text})
+```
+
+On every call, `before_invocation` asks Decider for the policy. If it is unchanged, the gate returns
+`Deny` and the agent stops **before any Bedrock call**. If it changed, it returns `Transform` and puts
+the policy at the top of the prompt. A failed plan call is retried on the next call.
+Real run (`python scripts/gate_demo.py --ticks 12`, local Decider + Nova Pro): 12 moments → 2 planner
+calls, **10 denied before Bedrock** (0 tokens each, ~0.3 s for the Decider check).
 
 ## Setup
 
@@ -78,8 +101,11 @@ uvicorn matchsense.server:app --reload       # http://localhost:8000
 APP_MODE=mock uvicorn matchsense.server:app  # no AWS / Decider; banner: MOCK MODE — NOT A REAL MODEL RESULT
 ```
 
-- **Match Replay:** pick a match and a baseline, **Run live** (SSE, real calls, real timing) or open a stored run for labelled recorded playback.
-- **Match Lab:** edit any scenario (form or drag players on the pitch), run both flows on the same state, inspect the raw Decider exchange.
+- **Watch** (opens first): one moment at a time — the situation, what each AI coach chose and told the BLUE team,
+  Decider's confidence for all 5 tactics, right or wrong, answer time, paid LLM calls, and a running score.
+  Plays a stored **real** run (labelled). "See exactly what each model received and returned" shows the raw inputs/outputs.
+- **Detailed replay:** pick a match, our agent and an LLM-only baseline, **Run live** (SSE, real calls, real timing) or open a stored run.
+- **Try a situation:** edit any scenario (form or drag players on the pitch) and run both coaches on the same state.
 - **Benchmark:** run all flows on the same items, see metrics with n, charts, export CSV/JSON.
 
 The server has **no authentication**; keep it on localhost (it spends your Bedrock and Decider quota).
@@ -87,7 +113,7 @@ The server has **no authentication**; keep it on localhost (it spends your Bedro
 ## Test and benchmark
 
 ```bash
-pytest -q                                              # 42 tests, all external services mocked
+pytest -q                                              # 61 tests, all external services mocked
 python scripts/run_benchmark.py --suites variants matches
 python scripts/ui_check.py                             # headless check of the three tabs (needs playwright)
 ```

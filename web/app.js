@@ -538,6 +538,12 @@ async function loadBenchList() {
   try {
     const r = await api("/api/benchmarks");
     $("#b-stored").innerHTML = `<option value="">—</option>` + r.items.map((x) => `<option value="${esc(x.job_id)}">[${x.mode.toUpperCase()}] ${esc(x.finished_at)} · ${esc((x.config?.suites || []).join("+"))}</option>`).join("");
+    // show the newest real benchmark that has all four agents, without a click (handy for demos)
+    const best = r.items.find((x) => x.mode === "real" && (x.config?.flows || []).length >= 4) || r.items.find((x) => x.mode === "real");
+    if (best && $("#b-results").hidden) {
+      $("#b-stored").value = best.job_id;
+      api(`/api/benchmark/${best.job_id}`).then((j) => j.result && renderBench(j.result, best.job_id)).catch((e) => showError(e.message));
+    }
   } catch (e) { showError(e.message); }
 }
 $("#b-load").addEventListener("click", () => withLoading($("#b-load"), async () => {

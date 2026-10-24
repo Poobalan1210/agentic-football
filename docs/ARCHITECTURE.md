@@ -31,7 +31,8 @@ flowchart LR
 | `policy_decision.py` | the `#policy` pattern: question, options, threshold, fallback |
 | `bedrock_client.py` | Strands `Agent` + `BedrockModel`, Pydantic structured output, token usage, cost |
 | `tactical_planner.py` | Nova Micro chooser, Nova Pro planner, Nova Pro choose-and-plan (B2) |
-| `hybrid_flow.py`, `baseline_flow.py` | flows A, B1, B2 as separate lanes |
+| `hybrid_flow.py`, `baseline_flow.py` | our agent (A "Decider decides", A2 "+ Nova Pro when unsure") and the LLM-only baselines B1, B2 |
+| `decider_gate.py` | the same pattern as a Strands `InterventionHandler` (`Deny` the planner when the policy is unchanged) |
 | `replay.py` | plays a match through the lanes, same text per tick, lanes in parallel |
 | `benchmark_runner.py`, `metrics.py` | trials → rows → summary, CSV/JSON |
 | `persistence.py`, `jobs.py` | stored runs (real/mock folders), background jobs |

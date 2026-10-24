@@ -27,6 +27,11 @@ class Lane:
     def step(self, tick: int, state_text: str) -> TickResult:  # pragma: no cover - abstract
         raise NotImplementedError
 
+    def needs_plan(self, policy: str | None) -> bool:
+        """Write a plan when there is none for this tactic: the tactic changed, or the last plan call
+        failed or came back for a different tactic (so a failed plan is retried on the next moment)."""
+        return policy is not None and (self.plan is None or self.plan.policy.value != policy)
+
     # -------------------------------------------------------------------------------------------
 
     def _write_plan(self, state_text: str, policy: str) -> tuple[TacticalPlan | None, LLMUsage | None, str | None, int]:
@@ -42,12 +47,17 @@ class Lane:
         changed = d.effective_policy is not None and d.effective_policy != before
         if d.effective_policy is not None:
             self.active_policy = d.effective_policy
-        if plan is not None:
-            self.plan = plan
-        usages = [u for u in (d.llm_usage, plan_usage) if u is not None]
         plan_valid = None
         if plan_called:
             plan_valid = plan is not None and plan.policy.value == d.effective_policy
+            if plan is not None and not plan_valid:
+                # never keep a plan written for another tactic; needs_plan() asks again next moment
+                plan_error = plan_error or (f"plan rejected: written for {plan.policy.value}, "
+                                            f"requested {d.effective_policy}")
+                plan = None
+        if plan is not None:
+            self.plan = plan
+        usages = [u for u in (d.llm_usage, plan_usage) if u is not None]
         return TickResult(
             flow=self.flow, tick=tick, decision=d, active_policy_before=before, policy_changed=changed,
             plan_called=plan_called, plan=plan, plan_usage=plan_usage, plan_error=plan_error, plan_valid=plan_valid,

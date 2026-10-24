@@ -20,6 +20,9 @@ os.environ["CONFIDENCE_THRESHOLD"] = "0.7"
 @pytest.fixture(autouse=True)
 def _results_dir(tmp_path, monkeypatch):
     monkeypatch.setenv("RESULTS_DIR", str(tmp_path / "results"))
+    from matchsense import persistence
+
+    monkeypatch.setattr(persistence, "PUBLISHED_DIR", tmp_path / "published")
     from matchsense.config import settings
     from matchsense.runtime import runtime
 

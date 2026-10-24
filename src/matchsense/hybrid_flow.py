@@ -4,7 +4,8 @@ Flow A   "Decider decides"                 Decider's pick is used on every tick,
 Flow A2  "Decider + Nova Pro when unsure"  below CONFIDENCE_THRESHOLD, Nova Pro answers the same
                                            question instead (FALLBACK_MODE, default nova_pro).
 
-In both, Nova Pro writes a new plan only when the tactic changes. If anything fails, the tick still
+In both, Nova Pro writes a new plan only when there is no plan for the current tactic (the tactic
+changed, or the last plan call failed / came back for another tactic, so it is retried). If anything fails, the tick still
 gets a tactic (Decider's pick, or the current one) and the errors are recorded.
 """
 
@@ -36,7 +37,7 @@ class HybridLane(Lane):
         d.fallback_mode = self.fallback_mode
         plan = usage = err = None
         plan_called = False
-        if d.effective_policy is not None and d.effective_policy != before:
+        if self.needs_plan(d.effective_policy):
             plan_called = True
             plan, usage, err, pc = self._write_plan(state_text, d.effective_policy)
             calls += pc

@@ -1,6 +1,14 @@
 # Reusable decision pattern: `#policy` — classify the state into a policy every tick
 
-Code: [`src/matchsense/policy_decision.py`](../src/matchsense/policy_decision.py) (labelled `REUSABLE DECISION PATTERN`).
+Code: [`src/matchsense/decider_gate.py`](../src/matchsense/decider_gate.py) (the Strands `InterventionHandler`,
+section 6) and [`src/matchsense/policy_decision.py`](../src/matchsense/policy_decision.py) (the plain function),
+both labelled `REUSABLE DECISION PATTERN`.
+
+| Hackathon requirement | Where |
+|---|---|
+| The typed question and option set | `QUESTION`, `POLICY_OPTIONS` in `policy_decision.py` (section 1) |
+| The wiring that puts the decision in the agent's path | `DeciderPolicyGate` in `decider_gate.py` (section 6) |
+| A short note on how to use it | this file, section 7 |
 
 ## The idea
 
@@ -9,10 +17,10 @@ decision model classifies the state into one of a few named policies with one ty
 The LLM is called only when the policy changes (or when the decision model is unsure).
 
 ```
-state ──> state_to_text ──> Strands Decider 2B: choice(policy) ──┬─ conf ≥ T ─> effective policy
-                                                                 └─ conf < T / error ─> Nova Micro picks from the same options
-effective policy changed (or fallback fired)? ──yes──> Nova Pro writes a new plan
-                                               └─no──> keep the current plan
+state ──> state_to_text ──> Strands Decider 2B: choice(policy) ──┬─ conf ≥ T (or no helper) ─> effective policy
+                                                                 └─ conf < T / error ─> Nova Pro picks from the same options
+no plan yet for the effective policy? ──yes──> Nova Pro writes a new plan
+                                       └─no──> keep the current plan (no Bedrock call)
 ```
 
 ## 1. The question and options
@@ -87,33 +95,72 @@ or `none` (always trust Decider). Decider errors/timeouts also go to the fallbac
 
 | Situation | Effective policy | Recorded |
 |---|---|---|
-| `confidence ≥ CONFIDENCE_THRESHOLD` (0.70) | Decider's choice | raw = effective, `decided_by=decider` |
+| `confidence ≥ CONFIDENCE_THRESHOLD` (default 0.30) | Decider's choice | raw = effective, `decided_by=decider` |
 | `confidence < threshold` | Nova Micro picks from the same options, same text | raw Decider choice kept, `fallback_reason=low_confidence` |
 | Decider error / timeout | Nova Micro | `fallback_reason=decider_error / decider_timeout`, raw = None |
 | both fail | none (tick counts as an error / missed deadline) | both errors |
 
-## 5. "Call the LLM only on change"
+## 5. "Call the LLM only when there is no plan for the current policy"
 
 ```python
-if effective != active_policy or decision.fallback:
+if lane.needs_plan(effective):   # plan is None or plan.policy != effective
     plan = nova_pro.write_plan(state_text, effective)   # structured TacticalPlan (Pydantic)
 ```
 
-## 6. Copy-paste version for another agent
+That is "re-plan when the policy changes", plus: a failed plan call is retried on the next moment,
+and a plan that comes back for a different policy is rejected (`plan_valid=False`) and retried.
+
+## 6. The wiring as a Strands `InterventionHandler`
+
+[`src/matchsense/decider_gate.py`](../src/matchsense/decider_gate.py) puts the decision in front of any
+Strands agent:
 
 ```python
-from matchsense.decider_client import DeciderClient          # or the kit's decider_kit.Decider
-from matchsense.policy_decision import decide_policy
-
-QUESTION = "Which handling policy fits this support ticket?"
-POLICY_OPTIONS = {"self_serve": "the answer is in the docs, so we reply with a link",
-                  "escalate":   "money or data is at risk, so a human takes over",
-                  "clarify":    "the request is ambiguous, so we ask one question"}
-
-decision, bedrock_calls = decide_policy(render(ticket), DeciderClient(), my_llm_fallback, threshold=0.7)
-if decision.effective_policy != current_policy or decision.fallback:
-    plan = my_llm.write_plan(render(ticket), decision.effective_policy)
+planner = Agent(model=nova_pro, system_prompt=PLANNER_SYSTEM,
+                interventions=[DeciderPolicyGate(decider, QUESTION, POLICY_OPTIONS, unsure_below=None)])
+result = planner("Write the plan.", invocation_state={"state_text": state_text})
 ```
 
-(`decide_policy` takes the question and options from the module constants; for another domain, copy
-the module and change `QUESTION` / `POLICY_OPTIONS`.)
+| `before_invocation` sees | Gate returns | Effect |
+|---|---|---|
+| Decider's policy == the policy the current plan was written for | `Deny` | agent stops before any model call (0 tokens) |
+| policy changed, or the last plan call for it failed | `Transform` | "POLICY TO FOLLOW: X — definition" is prepended to the user message |
+| `unsure_below` set and Decider's confidence is below it | `Transform` | the LLM is told Decider is unsure (with its ranking) and decides itself |
+| Decider error / timeout | `Transform` | the LLM decides; `gate.last` is `None` (never pretends Decider answered) |
+
+The policy is marked "planned" only in `after_model_call` when the model call raised no exception.
+Real run (`scripts/gate_demo.py`, 12 moments): 2 planner calls, 10 denied before Bedrock.
+
+## 7. How to use it in your own agent
+
+1. Write one `choice` question and a few mutually exclusive options, each as "when [condition], so we [action]".
+2. Render your state as plain sentences in code (compute geometry, counts and flags; don't make a 2B model do it).
+3. Put `DeciderPolicyGate` on your Strands agent and pass the state text in `invocation_state`.
+4. Measure Decider's calibration on your data (the Results tab here shows how) before setting `unsure_below`.
+
+```python
+from strands import Agent
+from strands.models import BedrockModel
+from matchsense.decider_client import DeciderClient   # hosted API (DECIDER_MODE=hosted) or local server
+from matchsense.decider_gate import DeciderPolicyGate
+
+QUESTION = "Which handling policy fits this support ticket?"
+OPTIONS = {"self_serve": "the answer is in the docs, so we reply with a link",
+           "escalate":   "money or data is at risk, so a human takes over",
+           "clarify":    "the request is ambiguous, so we ask one question"}
+
+gate = DeciderPolicyGate(DeciderClient(), QUESTION, OPTIONS, state_key="ticket_text")
+agent = Agent(model=BedrockModel(model_id="us.amazon.nova-pro-v1:0"), interventions=[gate])
+
+result = agent("Reply to the customer.", invocation_state={"ticket_text": render(ticket)})
+# Same policy as last time -> denied before Bedrock (0 tokens). New policy -> the LLM writes for it.
+print(gate.last_action, gate.last.choice if gate.last else None)
+```
+
+The gate sends exactly the question and options you give it; `tests/test_decider_gate.py`
+(`test_reusable_with_any_question_and_options`) checks this with the options above. `render(ticket)` is
+your own state-to-sentences function.
+
+If you are not using Strands Agents, `decide_policy()` in `policy_decision.py` gives the same decision as
+a plain function, but it reads the module's `QUESTION` / `POLICY_OPTIONS`, so copy the module and change
+those two constants.

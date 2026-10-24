@@ -29,7 +29,7 @@ class B1Lane(Lane):
             d.effective_policy, d.decided_by = d.llm_policy, "nova_fast"
         plan = usage = err = None
         plan_called = False
-        if d.effective_policy is not None and d.effective_policy != before:
+        if self.needs_plan(d.effective_policy):
             plan_called = True
             plan, usage, err, pc = self._write_plan(state_text, d.effective_policy)
             calls += pc

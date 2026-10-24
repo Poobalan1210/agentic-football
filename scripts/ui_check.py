@@ -75,6 +75,8 @@ def main() -> int:
             page.wait_for_function("!document.querySelector('#lab-run-both').classList.contains('loading')", timeout=60000)
         page.screenshot(path=str(out / "lab.png"), full_page=True)
         page.click("[data-tab=bench]")
+        page.wait_for_selector("#b-results:not([hidden])", timeout=15000)
+        page.wait_for_timeout(1200)
         if a.bench:
             page.select_option("#b-stored", a.bench)
             page.click("#b-load")

@@ -28,6 +28,36 @@ simulated threshold sweep.
 3. Fixes: Nova Micro token cap raised to 400; one retry on Nova's "invalid sequence as part of ToolUse" error (retries are counted as calls and tokens). Threshold chosen from the **simulated sweep on the variants split only**: 0.30 (80.0% simulated on variants).
 4. **Run 2** (threshold 0.30, `matches` suite only, `bench_cli_20261023_194954`): the reported held-out split. This is the headline.
 
+## Run 5 (final headline) — after the fixes, both suites
+
+`bench_cli_20261024_023923` (2026-10-24), same setup as run 4 (local Decider v19 on MLX, Nova Pro / Micro
+on Bedrock us-east-1, threshold 0.30), with the fixes below: re-plan when there is no plan for the current
+tactic, wrong-tactic plans rejected, botocore retries off. 944 trial rows, 0 errors, all plans valid.
+
+Scripted matches (180 moments, 173 labelled):
+
+| | **Decider decides** | **Decider + Nova Pro when unsure** | Nova Micro decides every moment | Nova Pro decides + plans every moment |
+|---|---|---|---|---|
+| Right tactic (n=173) | 69.4% | **82.1%** | 48.6% | 79.2% |
+| Decision time p50 / p95 | **0.37 s** / 0.78 s | 0.76 s / 2.50 s | 1.01 s / 1.19 s | 3.98 s / 5.01 s |
+| Decided within 1 s | **100%** | 53% | 42% | 0% |
+| Bedrock calls / match | **15.7** | 44.7 | 79.3 | 60.7 |
+| Bedrock cost / match | **$0.036** | $0.068 | $0.048 | $0.154 |
+| Errors / incomplete | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 |
+
+Scenarios (56, 55 labelled; one decision each, no per-match numbers): accuracy Decider 74.5%,
+Decider + Nova Pro 81.8%, Nova Micro 45.5%, Nova Pro 65.5%; decision p50 0.39 s / 0.69 s / 1.01 s / 3.92 s.
+
+Compared with run 4 on the same matches: Decider's answers were the same (69.4%); "+ Nova Pro" 82.1% vs
+80.3% (Nova Pro's answers vary run to run); Nova Pro alone 79.2% both times.
+
+## Fixes made after run 4
+
+- A plan is now (re)written whenever there is no plan for the current tactic, not only when the tactic
+  changes, so a failed plan call is retried next moment; a plan written for the wrong tactic is rejected.
+  Run 4 had 0 plan errors and 100% valid plans in every flow, so its numbers are unaffected.
+- The code default threshold is now 0.30 (was 0.70), matching `.env.example` and the reported runs.
+
 ## Run 4 (headline) — the two variants of our agent vs two LLM-only agents
 
 `bench_cli_20261023_233703`, scripted matches, Decider v19 local (MLX, Apple M4), threshold 0.30.
@@ -123,7 +153,9 @@ Retrieved 2026-10-23. Token counts are the Strands SDK's `accumulated_usage`.
 
 ## Missing data and timeouts
 
-Decider timeout 5 s; Bedrock read timeout 20 s with 2 SDK retries. A failed decision is recorded with
+Decider timeout 5 s; Bedrock read timeout 20 s. During runs 1–4 botocore was allowed one silent
+retry (max_attempts=2) that is not visible in "Bedrock calls"; it is now off (max_attempts=1) and the
+client retries once itself on malformed structured output or throttling, counting every attempt. A failed decision is recorded with
 its error, counted as incomplete and as wrong for accuracy, and as a missed deadline. Mock results live
 in `results/mock/` and are rejected by `summarize()` if mixed with real rows.
 

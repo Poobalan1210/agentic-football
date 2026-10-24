@@ -76,3 +76,28 @@ def test_json_export_and_persistence_separate_modes():
     assert persistence.load("benchmarks", "b_real")[0] == "real"
     assert persistence.load("benchmarks", "b_mock")[0] == "mock"
     assert persistence.load("benchmarks", "../etc") is None
+
+
+def test_list_items_newest_first_even_without_started_at_field():
+    from matchsense import persistence
+
+    persistence.save("real", "benchmarks", "old", {"job_id": "old", "finished_at": "2026-10-23T10:00:00+00:00", "rows": []})
+    persistence.save("real", "benchmarks", "new", {"job_id": "new", "finished_at": "2026-10-23T21:00:00+00:00", "rows": []})
+    items = persistence.list_items("benchmarks", ("job_id", "finished_at", "mode"))
+    assert [i["job_id"] for i in items] == ["new", "old"]
+
+
+def test_committed_real_runs_are_listed_and_loaded_read_only(tmp_path):
+    import json
+
+    from matchsense import persistence
+
+    pub = persistence.PUBLISHED_DIR
+    (pub / "replays").mkdir(parents=True)
+    (pub / "replays" / "r_pub.json").write_text(json.dumps({"run_id": "r_pub", "mode": "real", "status": "done",
+                                                            "started_at": "2026-10-24T00:00:00+00:00"}))
+    (pub / "replays" / "r_fake.json").write_text(json.dumps({"run_id": "r_fake", "mode": "mock"}))
+    items = persistence.list_items("replays", ("run_id", "status"))
+    assert [(i["run_id"], i["mode"]) for i in items] == [("r_pub", "real")]
+    assert persistence.load("replays", "r_pub")[0] == "real"
+    assert persistence.load("replays", "r_fake") is None

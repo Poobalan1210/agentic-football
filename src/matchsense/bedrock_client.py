@@ -40,6 +40,9 @@ def cost_usd(model_id: str, tin: int, tout: int) -> float:
     return tin / 1e6 * pin + tout / 1e6 * pout
 
 
+RETRYABLE = ("ToolUse", "StructuredOutput", "Throttl", "ServiceUnavailable", "TooManyRequests")
+
+
 class LLMError(RuntimeError):
     def __init__(self, msg: str, usage: LLMUsage | None = None, calls: int = 1):
         super().__init__(msg)
@@ -64,7 +67,7 @@ class NovaClient:
                 from botocore.config import Config
                 from strands.models import BedrockModel
 
-                cfg = Config(read_timeout=self.timeout_s, connect_timeout=5, retries={"max_attempts": 2, "mode": "standard"})
+                cfg = Config(read_timeout=self.timeout_s, connect_timeout=5, retries={"max_attempts": 1, "mode": "standard"})  # no hidden retries
                 self._models[key] = BedrockModel(model_id=model_id, region_name=self.region, boto_client_config=cfg,
                                                  max_tokens=max_tokens, temperature=0.0, streaming=False)
             return self._models[key]
@@ -73,9 +76,10 @@ class NovaClient:
                    max_tokens: int = 600, attempts: int = 2) -> tuple[T, LLMUsage, int]:
         """Returns (validated output, usage, number of model invocations).
 
-        Nova occasionally returns a malformed tool call for structured output (ModelErrorException
-        "invalid sequence as part of ToolUse"); that one error is retried once. Every attempt's
-        tokens, latency and invocations are counted.
+        botocore retries are switched off (max_attempts=1) so no Bedrock call is hidden. This method
+        retries once itself on Nova's malformed structured-output tool call ("invalid sequence as part
+        of ToolUse") and on throttling / service-unavailable errors; every attempt's tokens, latency
+        and invocations are counted in the returned call count.
         """
         tot_in = tot_out = calls = 0
         ms = 0.0
@@ -90,7 +94,7 @@ class NovaClient:
                 if e.usage:
                     tot_in, tot_out, ms = tot_in + e.usage.input_tokens, tot_out + e.usage.output_tokens, ms + e.usage.latency_ms
                 calls += e.calls
-                if "ToolUse" not in str(e) and "StructuredOutput" not in str(e):
+                if not any(k in str(e) for k in RETRYABLE):
                     break
         raise LLMError(str(last), self._usage(model_id, tot_in, tot_out, ms), calls)
 

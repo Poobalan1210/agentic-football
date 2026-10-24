@@ -102,7 +102,7 @@ def settings() -> Settings:
         nova_planner_model_id=os.environ.get("NOVA_PLANNER_MODEL_ID", "us.amazon.nova-pro-v1:0"),
         nova_fast_model_id=os.environ.get("NOVA_FAST_MODEL_ID", "us.amazon.nova-micro-v1:0"),
         bedrock_timeout_s=_f("BEDROCK_TIMEOUT_S", 20.0),
-        confidence_threshold=_f("CONFIDENCE_THRESHOLD", 0.70),
+        confidence_threshold=_f("CONFIDENCE_THRESHOLD", 0.30),
         tick_seconds=_f("TICK_SECONDS", 2.0),
         decision_deadline_s=_f("DECISION_DEADLINE_S", 1.0),
         results_dir=rd if rd.is_absolute() else ROOT / rd,
