@@ -174,6 +174,17 @@ This gives two trade-offs, not one winner:
 - **Decider's confidence is a usable signal.** When it was 30% sure or more, Decider was right 85% of the time; below that, 49%. The LLM-only agents gave no comparable measured signal.
 - **On the same question, Decider 2B beat Nova Micro by 21 points.**
 
+**Both test sets together** (the Results screen shown in the demo video): the same run on the 3 matches plus the 56 separate scenarios, 236 decisions per agent, 228 with an answer key. Calls per match don't apply to the scenarios, so cost is per 1,000 decisions.
+
+| | **Decider decides** | **Decider + Nova Pro when unsure** | Nova Micro decides every moment | Nova Pro decides + plans every moment |
+|---|---|---|---|---|
+| Right tactic (vs. answer key) | 70.6% | **82.0%** | 47.8% | 75.9% |
+| Decision time, p50 | **0.38 s** | 0.72 s | 1.01 s | 3.94 s |
+| Decided within 1 s | **99.6%** | 56% | 43% | 0% |
+| Bedrock cost per 1,000 decisions | **$1.04** | $1.51 | $1.18 | $2.56 |
+
+The picture is the same: Decider alone is the fastest and cheapest, and Decider with Nova Pro on unsure moments is the most accurate.
+
 These numbers leave things out, and here is what: Decider's own compute cost is not included (it ran locally here, and hosting it is not free). The answer keys are rule-based and written by me. Through the hosted Decider API the same model took about 2.4 s per call from my laptop in India, so where the decision model runs decides whether it can meet a 1-second deadline.
 
 ## What went wrong first
