@@ -247,7 +247,7 @@ pip install -r requirements.txt && pip install -e .
 APP_MODE=mock uvicorn matchsense.server:app     # no keys needed: plays the committed real runs
 ```
 
-Open http://localhost:8000. The **Watch** tab replays a recorded real match with the two coaches side by side. **Try a situation** lets you drag players around and run both agents on the same state. **Results** shows the full benchmark, the calibration table and a threshold sweep. With a Decider key and Bedrock access to Amazon Nova, `APP_MODE=real` runs everything live.
+Open http://localhost:8000. The **Watch** tab replays a recorded real match with the two coaches side by side. **Try a situation** lets you drag players around and run both agents on the same state. **Results** shows the full benchmark, the calibration table and a threshold sweep. To run it live, set `APP_MODE=real` with Amazon Bedrock access to Amazon Nova Micro and Nova Pro in your AWS account, and a Strands Decider endpoint: either the AWS User Group Madurai hosted Decider used in this hackathon (`DECIDER_MODE=hosted` plus your key; about 2.4 s per call from India in my runs, so it misses a 1-second deadline) or the same model on your own machine (`DECIDER_MODE=local`, about 0.4 s on an Apple M4; see `scripts/serve_local_decider.py`). The app has no login, so keep it on localhost.
 
 **Stack:** Strands Decider 2B · Strands Agents (`BedrockModel`, structured output, `InterventionHandler`) · Amazon Nova Pro and Nova Micro on Amazon Bedrock · FastAPI with Server-Sent Events · a single HTML page with a hand-built SVG pitch · 63 tests with every external service mocked.
 
