@@ -1,8 +1,15 @@
-# MatchSense: a 2B model watches every moment, Amazon Nova speaks only when tactics change
+# MatchSense: Strands Decider 2B decides every moment, Amazon Nova on Bedrock speaks only when tactics change
 
 **Tags:** `#strands-decider-2b` `#policy`
 
 **Repo:** https://github.com/Poobalan1210/agentic-football · **Demo video:** [video link]
+
+**TL;DR**
+
+- **The decision handed to Strands Decider 2B:** at every 2-second moment of a five-a-side football match, one typed `choice` question picks the team's tactic from five options. Pattern: **`#policy`**.
+- **The generative part:** Amazon Nova Pro on Amazon Bedrock (through Strands Agents) writes a coaching plan only when the tactic changes, about 15 times per match instead of 60.
+- **Measured on 3 scripted matches (173 labelled moments):** Decider alone decided within 1 second on every moment (median 0.37 s) at 77% lower Bedrock cost than an LLM-only Nova Pro agent. Handing Decider's unsure moments to Nova Pro gave the best accuracy, 82.1% vs 79.2%, at 56% lower cost.
+- **Reusable:** the decision ships as a Strands `InterventionHandler` that denies the LLM call before Bedrock whenever the policy hasn't changed.
 
 ## The problem: an LLM at every moment
 
@@ -140,7 +147,7 @@ The same moment, by size:
 
 Nova's prompt text is short. Most of its input tokens are the plan's output schema, which Strands sends with the call to get structured output. The complete prompts and outputs for every moment are in the app's *"See exactly what each model received and returned"* panel and in the committed run files (`docs/results/replays/`).
 
-Two moments later Decider gets one wrong: it says `KEEP_POSSESSION` where the answer key says `HIGH_PRESS`. It is also only 21% confident, which is below the bar, so the *"Nova Pro when unsure"* variant handed that moment to Nova Pro, which said `HIGH_PRESS`. That is the point of a decision model reporting its own confidence: the agent can tell when to doubt it.
+With 36 seconds left, two moments after that, Decider gets one wrong: it says `KEEP_POSSESSION` where the answer key says `HIGH_PRESS`. It is also only 21% confident, which is below the bar, so the *"Nova Pro when unsure"* variant handed that moment to Nova Pro, which said `HIGH_PRESS`. That is the point of a decision model reporting its own confidence: the agent can tell when to doubt it.
 
 ![Moment 43 with "Let Nova Pro help" ticked: Decider was 21% sure (KEEP_POSSESSION 37.0% vs HIGH_PRESS 36.8%), below the 30% bar, so Nova Pro was asked and picked HIGH PRESS, the right tactic, in 2.0 s with 2 paid calls.](images/unsure_moment.png)
 
@@ -174,7 +181,7 @@ These numbers leave things out, and here is what: Decider's own compute cost is 
 Every one of these is in the repo's run history (`docs/BENCHMARK_METHODOLOGY.md`).
 
 - **Action-only option text sent Decider one way.** My first definitions described actions ("pressure the opponent high up the pitch…"), and Decider picked `COUNTERATTACK` for almost every state where we had the ball: 18 of 57 right on a probe set. Rewriting each option as *"when [condition], so we [action]"* raised that to 30 of 57, and adding computed facts to the state text ("their defence is set", "they are attacking towards our goal") raised it to 42 of 57. The problem was mostly my question, not the model. *Caveat:* that probe was drawn from the same scenarios and matches I later evaluated on, so treat Decider's own accuracy as somewhat optimistic.
-- **A 0.70 threshold turned the hybrid into Nova Micro.** With five close options, Decider's confidence was below 0.70 on 91% of moments, so the cheap helper answered almost everything. The hybrid scored 44.7%, about Nova Micro's level (44.3%) and far below Decider's own 70.6% in the same run. The calibration table showed the wrong answers cluster below 0.2 confidence, and a threshold sweep on the separate set of 56 scenarios picked 0.30.
+- **A 0.70 threshold turned the hybrid into Nova Micro.** With five close options, Decider's confidence was below 0.70 on 91% of decisions, so the cheap helper answered almost everything. The hybrid scored 44.7%, about Nova Micro's level (44.3%) and far below Decider's own 70.6% in the same run. The calibration table showed the wrong answers cluster below 0.2 confidence, and a threshold sweep on the separate set of 56 scenarios picked 0.30.
 - **A weak helper lowers accuracy.** At 0.30 with Nova Micro as the helper, the hybrid still scored *below* Decider alone on the matches (67.0% vs 69.4%). On the scenario set, Nova Pro as the helper reached 80.4%, against 73.2% for no helper and 71.4% for Nova Micro, so Nova Pro became the helper.
 - **My first hybrid made more Bedrock calls than the LLM-only agent.** Each hand-over cost a Nova Micro call, *and* it wrote a new Nova Pro plan after every hand-over even when the tactic stayed the same (33.7 plans per match). The total was 62.0 Bedrock calls per match, against 60.3 for Nova Pro at every moment. Planning only when the tactic actually changes cut it to 15.7 (Decider alone) and 44.7 (with Nova Pro helping).
 - **The hosted Decider missed every deadline.** Through the hosted API the round trip was about 2.4 s from my laptop (about 2.0 s on the server), and it queued concurrent requests. Running the same model locally on an Apple M4 brought it to about 0.4 s.
@@ -249,7 +256,7 @@ APP_MODE=mock uvicorn matchsense.server:app     # no keys needed: plays the comm
 
 Open http://localhost:8000. The **Watch** tab replays a recorded real match with the two coaches side by side. **Try a situation** lets you drag players around and run both agents on the same state. **Results** shows the full benchmark, the calibration table and a threshold sweep. To run it live, set `APP_MODE=real` with Amazon Bedrock access to Amazon Nova Micro and Nova Pro in your AWS account, and a Strands Decider endpoint: either the AWS User Group Madurai hosted Decider used in this hackathon (`DECIDER_MODE=hosted` plus your key; about 2.4 s per call from India in my runs, so it misses a 1-second deadline) or the same model on your own machine (`DECIDER_MODE=local`, about 0.4 s on an Apple M4; see `scripts/serve_local_decider.py`). The app has no login, so keep it on localhost.
 
-**Stack:** Strands Decider 2B · Strands Agents (`BedrockModel`, structured output, `InterventionHandler`) · Amazon Nova Pro and Nova Micro on Amazon Bedrock · FastAPI with Server-Sent Events · a single HTML page with a hand-built SVG pitch · 63 tests with every external service mocked.
+**Stack:** Strands Decider 2B · Strands Agents (`BedrockModel`, structured output, `InterventionHandler`) · Amazon Nova Pro and Nova Micro on Amazon Bedrock · FastAPI with Server-Sent Events · a single HTML page with a hand-built SVG pitch · 64 tests with every external service mocked.
 
 ## What I'd try next
 
@@ -268,7 +275,7 @@ Let the "Nova Pro when unsure" variant act on Decider's pick *immediately* and l
 
 ## Sources and assumptions
 
-- **About the Agentic Football Cup:** what this article says about the Cup (teams of five autonomous agents making decisions every two seconds, built with Amazon Bedrock and the Strands Agents SDK) comes from AWS's public event pages, for example [AWS Startups: Agentic Football Cup](https://startups.aws.com/events/agentic-football-cup-gurgaon-build-ai-agents-that-play-football) and the [Agentic Football Cup Poland event](https://awsagenticfootballcuppoland.splashthat.com/). MatchSense does not use the Cup's game, rules engine or code, and is not affiliated with or endorsed by the Cup.
+- **About the Agentic Football Cup:** what this article says about the Cup (teams of five autonomous agents making decisions every two seconds, built with Amazon Bedrock and the Strands Agents SDK) comes from AWS's public event pages, for example [AWS Startups: Agentic Football Cup](https://startups.aws.com/events/agentic-football-cup-gurgaon-build-ai-agents-that-play-football). MatchSense does not use the Cup's game, rules engine or code, and is not affiliated with or endorsed by the Cup.
 - **The 1-second deadline is mine.** I chose it as a budget inside the Cup's 2-second rhythm. It is not an official Cup rule.
 - **Everything else is measured or written by me:** the scripted matches, the answer key, and every benchmark number, from the stored runs in the repo.
 
